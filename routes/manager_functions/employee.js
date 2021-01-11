@@ -4,8 +4,14 @@ const router = express.Router();
 const {validateEmployee} = require('../../models/employee_creation');
 const {pool} = require('../../startup/mysql_database');
 const _ = require('lodash');
+const path = require('path');
 
 
+
+router.get('/create' , (request,response) =>{
+    response.sendFile(path.join(__dirname, '../../views/employee_creation.html'));
+
+});
 router.post('/create', async (request,response)=>{
     const {error} = validateEmployee(request.body);
     if(error){
@@ -21,7 +27,7 @@ router.post('/create', async (request,response)=>{
 
     response.send(request.body);
 
-})
+});
 
 
 function insertEmployee(body) {

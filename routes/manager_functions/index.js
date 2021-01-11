@@ -1,6 +1,8 @@
 const employee = require('./employee');
-const routes = require('express').Router();
+const food_item = require('./food_items')
+const router = require('express').Router();
 
-routes.use('/employee', employee);
+router.use('/employee', employee);
+router.use('/food_items', food_item);
 
-module.exports = routes;
+module.exports = router;
