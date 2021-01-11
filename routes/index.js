@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const managerFunctions = require('./manager_functions')
 
-router.get('/test',(request,response)=>{
-    response.send('ello');
-})
+
+router.use('/manager_func',managerFunctions);
 
 module.exports = router;
