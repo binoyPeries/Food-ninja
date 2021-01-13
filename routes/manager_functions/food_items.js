@@ -32,7 +32,7 @@ router.post('/add', async (request,response)=>{
 
 function addFoodItem(body) {
     return new Promise((resolve, reject) => {
-        const result = pool.query("CALL create_food_item (?,?,?,?,?)",
+        pool.query("CALL create_food_item (?,?,?,?,?)",
             [
                 body.food_item_name,
                 body.food_item_name,

@@ -32,7 +32,7 @@ router.post('/create', async (request,response)=>{
 
 function insertEmployee(body) {
     return new Promise((resolve, reject) => {
-        const result = pool.query("CALL create_employee (?,?,?)",
+        pool.query("CALL create_employee (?,?,?)",
             [
                 body.employee_name,
                 body.job_post,

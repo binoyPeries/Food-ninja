@@ -9,7 +9,11 @@ module.exports = function (app) {
     app.use(express.urlencoded({ extended: true }));
 
     app.set('views', path.join(__dirname, '../views'));
-    app.set('view engine', 'pug');
+
+    //view engine setup
+    app.set('view engine', 'ejs');
+    app.engine('html',require('ejs').renderFile);
+
 
     app.use('/', routes);
 }
