@@ -1,0 +1,60 @@
+body {
+    font-family: Cambria;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/Background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 10;
+}
+
+.upper-nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    height: 10%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 35%;
+}
+
+.sbox {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+
+.bt {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    border-radius: 30%;
+    background-image: linear-gradient(to bottom right, #030302, #948353);
+    margin: 0.5% 2% 0.5% 0;
+}
+
+.bt a {
+    color: white;
+}
+
+.container {
+    position: fixed;
+    top: 10%;
+    height: 90%;
+    width: 100%;
+}
