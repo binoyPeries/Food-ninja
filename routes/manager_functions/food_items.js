@@ -19,7 +19,7 @@ router.post('/add', async (request,response)=>{
     }
 
     try {
-        await addFoodItem(_.pick(request.body,["food_item_name","food_item_name","description","calorie_amount","image"]));
+        await addFoodItem(_.pick(request.body,["food_item_name","price","description","calorie_amount","image"]));
         
     } catch (error) {
        return  response.status(400).send(error.message);
@@ -35,7 +35,7 @@ function addFoodItem(body) {
         pool.query("CALL create_food_item (?,?,?,?,?)",
             [
                 body.food_item_name,
-                body.food_item_name,
+                body.price,
                 body.description,
                 body.calorie_amount,
                 body.image,
