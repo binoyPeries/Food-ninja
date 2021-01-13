@@ -23,7 +23,7 @@ router.get('/view', async (request,response) =>{
 
 function getmenu() {
     return new Promise((resolve, reject) => {
-        pool.query("CALL foods()",
+        pool.query("CALL getMenu()",
             (error, results, fields) => {
                 if (error) {
                     reject(error);
