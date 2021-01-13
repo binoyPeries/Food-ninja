@@ -23,3 +23,12 @@ BEGIN
     (food_item_name,price,description,calorie_amount,image);
     commit;
 END$$
+
+-- get all the menue items
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE getMenu()
+   BEGIN 
+   SELECT  * FROM  food_item;END
+$$
