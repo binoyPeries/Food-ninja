@@ -25,8 +25,9 @@ module.exports= class Manager {
 
     static  addFoodItem(body) {
         return new Promise((resolve, reject) => {
-            pool.query("CALL create_food_item (?,?,?,?,?)",
+            pool.query("CALL create_food_item (?,?,?,?,?,?)",
                 [
+                    body.food_item_id,
                     body.food_item_name,
                     body.price,
                     body.description,

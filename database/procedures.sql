@@ -12,6 +12,7 @@ END$$
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE `create_food_item` (
+  `food_item_id` VARCHAR(30),
   `food_item_name` VARCHAR(30),
   `price` NUMERIC(6,2),
   `description` VARCHAR(100),
@@ -19,8 +20,8 @@ CREATE OR REPLACE PROCEDURE `create_food_item` (
   `image` BLOB )
 BEGIN
     set AUTOCOMMIT = 0;
-    INSERT INTO `food_item` (`food_item_name`,`price`,`description`,`calorie_amount`,`image`) VALUES 
-    (food_item_name,price,description,calorie_amount,image);
+    INSERT INTO `food_item` (`food_item_id`,`food_item_name`,`price`,`description`,`calorie_amount`,`image`) VALUES 
+    (food_item_id,food_item_name,price,description,calorie_amount,image);
     commit;
 END$$
 

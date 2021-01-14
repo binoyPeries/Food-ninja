@@ -9,7 +9,7 @@ async function addFoodItem(request,response){
     }
 
     try {
-        await Manager.addFoodItem(_.pick(request.body,["food_item_name","price","description","calorie_amount","image"]));
+        await Manager.addFoodItem(_.pick(request.body,["food_item_id","food_item_name","price","description","calorie_amount","image"]));
         
     } catch (error) {
        return  response.status(400).send(error.message);

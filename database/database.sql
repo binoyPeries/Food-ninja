@@ -6,7 +6,7 @@ CREATE TABLE `employee` (
 );
 
 CREATE TABLE `food_item` (
-  `food_item_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `food_item_id` VARCHAR (30) PRIMARY KEY,
   `food_item_name` varchar(30) NOT NULL,
   `price` NUMERIC (6,2) NOT NULL,
   `description` varchar(100) NOT NULL,
