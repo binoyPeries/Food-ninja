@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const managerFunctions = require('./manager_functions');
-const customerFunctions = require('./customer_functions');
+const managerFunctions = require('./manager');
+const customerFunctions = require('./customer');
 
 
 router.use('/manager_func',managerFunctions);
