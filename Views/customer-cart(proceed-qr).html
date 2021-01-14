@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cash.css">
+    <link rel="stylesheet" href="css/qr.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+    <title>Customer cart-proceed-qr</title>
+</head>
+<body>
+  <div class="main-container">
+    <div class="upper-nav">
+        <div class="logo">
+            <a href="./FoodMenu.html">
+                <img src="./images/Logo.png" alt="logo" height="100%">
+            </a>
+        </div>
+        <div class="username sbox">
+            <p>Hi, Test</p>
+        </div>
+        <div class="cart sbox">
+            <a href="">
+                <img src="./images/shopping_cart_24px.png" alt="cart" height="50px">
+            </a>
+        </div>
+        <div class="favorites sbox bt">
+            <a href="">Favorites</a>
+        </div>
+        <div class="logout sbox bt">
+            <a href="">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-sm-6">
+            <div class="submit">
+                <form>
+                    <div class="form-group">
+                        <div class="d-flex flex-column">
+                            <label  class="control-label">Google Map Location Url</label>
+                            <input type="url" value='location' class="form-control" id="lineHeight" disabled>
+                        </div>
+                    </div>
+                  <br><br>
+                    <div class="form-group">
+                      <div class="d-flex flex-column">
+                        <label  class="control-label">Payment method</label>
+                        <div class="form-control" id="lineHeight">
+                            <div class="form-check">
+                                <label class="form-check-label" for="cash" style="margin-right: 72%;">
+                                    Cash
+                                  </label>
+                                <input class="form-check-input" type="radio" name="payment" id="cash"  value="cash" disabled>
+                                
+                              </div>
+                        </div>
+                          <br>
+                          <div class="form-control" id="lineHeight">
+                            <div class="form-check">
+                                <label class="form-check-label" for="qrcode" style="margin-right: 50%;">
+                                   Scan QR code
+                                  </label>
+                                <input class="form-check-input" type="radio" name="payment" id="qrcode" value="qrcode" checked >
+                                
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                   
+                  </form>
+            </div>
+        
+       </div>
+       <div class="col-sm-6" >
+        <div class="submit">
+           
+              <div id="container">
+                <h1>QR Code Scanner</h1>
+            
+                <a id="btn-scan-qr">
+                    <img src="https://uploads.sitepoint.com/wp-content/uploads/2017/07/1499401426qr_icon.svg">
+                <a/>
+            
+                <canvas hidden="" id="qr-canvas"></canvas>
+            
+                <div id="qr-result" hidden="">
+                    <b>Data:</b> <span id="outputData"></span>
+                </div>
+            </div>
+            
+      
+       
+       </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
