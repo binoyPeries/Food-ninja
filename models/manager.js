@@ -46,6 +46,25 @@ module.exports= class Manager {
     
         
     }
+
+    static  removeFoodItem(body) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL removeMenuItem (?)",
+                [
+                    body.item_id,
+                ],
+                function (error, results, fields) {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(console.log("removed sucessfully"));
+                }
+            )
+        })
+    
+        
+    }
+
     
 
 }

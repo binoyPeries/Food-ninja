@@ -22,7 +22,7 @@ BEGIN
     set AUTOCOMMIT = 0;
     INSERT INTO `food_item` (`food_item_id`,`food_item_name`,`price`,`description`,`calorie_amount`,`image`) VALUES 
     (food_item_id,food_item_name,price,description,calorie_amount,image);
-    commit;
+    commit; 
 END$$
 
 -- get all the menue items
@@ -32,4 +32,13 @@ $$
  CREATE OR REPLACE  PROCEDURE getMenu()
    BEGIN 
    SELECT  * FROM  food_item;END
+$$
+
+--remove item from menu
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE removeMenuItem ( IN item_id VARCHAR(30))
+   BEGIN 
+   DELETE FROM food_item WHERE food_item_id = item_id;END
 $$
