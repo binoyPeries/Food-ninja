@@ -2,11 +2,15 @@ DELIMITER $$
 CREATE OR REPLACE PROCEDURE `create_employee` (
   `employee_name` VARCHAR(30),
   `job_post` VARCHAR(50),
-  `contact_number` INT)
+  `contact_number` INT,
+   `email` VARCHAR(50) ,
+  `password` VARCHAR (50)
+   
+  )
 BEGIN
     set AUTOCOMMIT = 0;
-    INSERT INTO `employee` (`employee_name`,`job_post`,`contact_number`) VALUES 
-    (employee_name,job_post,contact_number);
+    INSERT INTO `employee` (`employee_name`,`job_post`,`email`,`password`,`contact_number`) VALUES 
+    (employee_name,job_post,email,password,contact_number);
     commit;
 END$$
 
