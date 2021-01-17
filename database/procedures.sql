@@ -37,3 +37,35 @@ $$
    BEGIN 
    SELECT  * FROM  food_item;END
 $$
+
+
+--login related
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `login_employee` 
+(`email_value` VARCHAR(50))
+BEGIN
+    SELECT * FROM `employee` WHERE `email`= email_value;
+END$$
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `login_manager` 
+(IN `email_value` VARCHAR(50))
+BEGIN
+    SELECT * FROM `manager` WHERE `email`= email_value;
+END$$
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `login_customer` 
+(IN `email_value` VARCHAR(50))
+BEGIN
+    SELECT * FROM `customer` WHERE `email`= email_value;
+END$$
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `login_driver` 
+(IN `email_value` VARCHAR(50))
+BEGIN
+    SELECT * FROM `delivery_person` WHERE `email`= email_value;
+END$$
