@@ -3,7 +3,7 @@ CREATE TABLE `employee` (
   `employee_name` varchar(30) NOT NULL,
   `job_post` varchar(50) NOT NULL,
   `email` VARCHAR(50) NOT  NULL UNIQUE ,
-  `password` VARCHAR (50) NOT NULL, 
+  `password` VARCHAR (100) NOT NULL, 
   `contact_number` int NOT NULL
 );
 
@@ -13,7 +13,7 @@ CREATE TABLE `manager` (
   `Manager_name` varchar(30) NOT NULL,
   `Contact_number` int NOT NULL,
    `email` VARCHAR(50) NOT  NULL UNIQUE ,
-  `password` VARCHAR (50) NOT NULL 
+  `password` VARCHAR (100) NOT NULL 
 
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE `delivery_person` (
   `Vehicle_Type` varchar(20) NOT NULL,
   `Vehicle_number` varchar(10) NOT NULL,
   `email` VARCHAR(50) NOT  NULL UNIQUE ,
-  `password` VARCHAR (50) NOT NULL 
+  `password` VARCHAR (100) NOT NULL 
 
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE `customer` (
   `Loyalty_Points` int NOT NULL,
   `Contact_number` int NOT NULL,
    `email` VARCHAR(50) NOT  NULL UNIQUE ,
-  `password` VARCHAR (50) NOT NULL, 
+  `password` VARCHAR (100) NOT NULL, 
 );
 
 CREATE TABLE `guest_customer` (

@@ -5,10 +5,12 @@ module.exports= class Manager {
     //create employee
     static insertEmployee(body) {
         return new Promise((resolve, reject) => {
-            pool.query("CALL create_employee (?,?,?)",
+            pool.query("CALL create_employee (?,?,?,?,?)",
                 [
                     body.employee_name,
                     body.job_post,
+                    body.email,
+                    body.password,
                     body.contact_number,
                 ],
                 function (error, results, fields) {
