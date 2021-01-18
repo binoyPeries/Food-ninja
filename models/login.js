@@ -8,15 +8,26 @@ function getPassword(email, table) {
             [
                 email
             ],
-            function (error, results, fields) {
+            async function (error, results, fields) {
                 if (error) {
                     reject(error);
-                };
+                }
                 // console.log(`result ${JSON.stringify(result)}`);
+                else{
+                    
+                    if(results.length>0){
+                        resolve(results[0].password);
+                    }
+
+                    else{
+                        resolve(null);
+                    }
+                }
+
                 // console.log(result.sql);
-                // console.log(results);
-                // console.log(results[0]);
-                resolve(results[0].password);
+                // console.log(`****results ${results}`);
+                // // console.log(results[0]);
+                // resolve(results);
             }
         )
     });

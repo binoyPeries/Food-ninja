@@ -57,15 +57,19 @@ const login = async (request, response) => {
 
     try {
         password = await getPassword(email, procedure);
+        // console.log(password);
          if (!password) {
              return response.status(400).send("User not registered");
         }
-        const validPassword = bcrypt.compare(request.body.password, password);
+        // console.log(`request.body.password, ${request.body.password}`);
+        // console.log(`true pass ${password}`);
+        const validPassword = await  bcrypt.compare(request.body.password, password);
 
+        // console.log(validPassword);
         if (!validPassword) {
             return response.status(400).send("Invalid e-mail or password"); //Not 404 because you dont want to give that much info to the client
         }
-
+        
         const payload = {
             email: email,
             privilege_level: request.body.privilege_level
