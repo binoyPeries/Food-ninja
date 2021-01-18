@@ -2,9 +2,9 @@ DELIMITER $$
 CREATE OR REPLACE PROCEDURE `create_employee` (
   `employee_name` VARCHAR(30),
   `job_post` VARCHAR(50),
-  `contact_number` INT,
-   `email` VARCHAR(50) ,
-  `password` VARCHAR (50)
+   `email` VARCHAR(100) ,
+  `password` VARCHAR (100) 
+   `contact_number` INT,
    
   )
 BEGIN

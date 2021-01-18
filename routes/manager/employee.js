@@ -14,6 +14,6 @@ router.get('/create' , [isLogged,isManager],(request,response) =>{
 
 });
 
-router.post('/create', createEmployee);
+router.post('/create',  [isLogged,isManager],createEmployee);
 
 module.exports = router;
