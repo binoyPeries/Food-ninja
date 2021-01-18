@@ -5,8 +5,11 @@ const {pool} = require('../../startup/mysql_database');
 const _ = require('lodash');
 const path = require('path');
 
+const isLogged = require('../../middleware/login');
+const isCustomer = require('../../middleware/customer');
 
-router.get('/view',getMenu );
+
+router.get('/view',[isLogged,isCustomer],getMenu );
 
 
 

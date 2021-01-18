@@ -40,7 +40,7 @@ module.exports = function (app) {
 
     app.set('views', path.join(__dirname, '../views'));
 
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static('public'));
 
     //view engine setup
     app.set('view engine', 'ejs');

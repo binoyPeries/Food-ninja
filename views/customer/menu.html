@@ -3,18 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <title>Document</title>
 </head>
 <body>
-    <h1>MENU LIST</h1>
-    <% result.forEach(food => {%>
-        <h2> <%= food.food_item_name %></h2>
-        <h2> <%= food.price %></h2>
-        <h2> <%= food.description %></h2>
-      <!-- how to retrieve data -->
 
-        
-        <% }); %> 
+        <div class="main-container">
+          <div class="upper-nav">
+              <div class="logo">
+                  <a href="">
+                      <img src="/images/Logo.png" alt="logo" height="100%">
+                  </a>
+              </div>
+              <div class="username sbox">
+                  <p>Hi, Test</p>
+              </div>
+              <div class="cart sbox">
+                  <a href="">
+                      <img src="/images/shopping_cart_24px.png" alt="cart" height="50px">
+                  </a>
+              </div>
+              <div class="favorites sbox bt">
+                  <a href="./Favorites.html">Favorites</a>
+              </div>
+              <div class="logout sbox bt">
+                  <a href="/">Home</a>
+              </div>
+          </div>
+          <div class="container">
+              <div class="menu">
+                  <div class="item-container">
+                    <% result.forEach(food => {%>
+                      <div class="item">
+                          <div class="image">
+                              <img src="/images/Sri-Lankan-Rice-and-Curry.jpg" height="90%" >
+                          </div>
+                          <div class="details">
+                              <div class="price bt-s">
+                                  <p><%= food.food_item_name %> <br> Rs. <%= food.price %> <br> calory:  <%= food.calorie_amount %></p>
+                              </div>
+                              <br>
+                              <div class= "bt-s">
+                                  <img class="cart " src="/images/shopping_cart_24px.png" height="50%">
+
+                                  <img class="fav_button " src="/images/favorite_border_24px_outlined.png" height="50%">
+                              </div>
+
+                          </div>
+                      </div>
+                      <% }); %>  
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
 
     
 
