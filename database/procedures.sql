@@ -69,3 +69,25 @@ CREATE OR REPLACE PROCEDURE `login_driver`
 BEGIN
     SELECT * FROM `delivery_person` WHERE `email`= email_value;
 END$$
+
+--cart related
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE getLoggedcustomer(useremail VARCHAR (50) )
+   BEGIN 
+   SELECT  Customer_id FROM  customer WHERE email = useremail;END
+$$
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `add_to_cart` (
+  `cart_id` INT ,
+  `food_item_id` VARCHAR(6)
+  )
+BEGIN
+    set AUTOCOMMIT = 0;
+    INSERT INTO `cart_addition` (`cart_id`,`food_item_id`) VALUES 
+    (cart_id,food_item_id);
+    commit;
+END$$
+
