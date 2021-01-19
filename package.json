@@ -1,7 +1,7 @@
 {
   "name": "Food-ninja",
   "version": "1.0.0",
-  "description": "",
+  "description": "clone the repo and make a local repo,\r INSTALLING",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
