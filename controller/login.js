@@ -71,7 +71,7 @@ const login = async (request, response) => {
         }
         
         const payload = {
-            email: email,
+            userEmail: email,
             privilege_level: request.body.privilege_level
         };
 
