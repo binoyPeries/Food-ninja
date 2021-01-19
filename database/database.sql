@@ -64,11 +64,11 @@ CREATE TABLE `registered_customer_cart` (
 
 );
 
-CREATE TABLE `registered_cart_addition` (
+CREATE TABLE `cart_addition` (
   `cart_id` int NOT NULL ,
   `food_item_id` varchar(6) NOT NULL,
-    PRIMARY key (`cart_id`,`food_item_id`),
-   FOREIGN KEY (`cart_id`) REFERENCES registered_customer_cart(`Cart_id`),
+    PRIMARY key (`cart_id`),
+   FOREIGN KEY (`cart_id`) REFERENCES customer(`customer_id`),
    FOREIGN KEY (`food_item_id`) REFERENCES food_item(`food_item_id`)    
 );
 
