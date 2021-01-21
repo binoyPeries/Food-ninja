@@ -5,7 +5,6 @@ async function getCart(request,response){
         console.log(request.userEmail);
         const res = await Customer.getCart(request);
         const result = JSON.parse(JSON.stringify(res[0]))
-        console.log(res);
         response.render('customer/cart.html',{result: result});
         // const result = JSON.parse(JSON.stringify(res[0]))
         // response.render('customer/menu.html',{result: result});
