@@ -81,13 +81,23 @@ $$
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE `add_to_cart` (
-  `cart_id` INT ,
+  `customer_email` VARCHAR (50) ,
   `food_item_id` VARCHAR(6)
   )
 BEGIN
     set AUTOCOMMIT = 0;
-    INSERT INTO `cart_addition` (`cart_id`,`food_item_id`) VALUES 
-    (cart_id,food_item_id);
+    INSERT INTO `customer_cart` (`customer_email`,`food_item_id`) VALUES 
+    (customer_email,food_item_id);
     commit;
 END$$
+
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE getcartItem(usermail VARCHAR (50))
+   BEGIN 
+   SELECT customer_cart.food_item_id, food_item.food_item_name, food_item.price  FROM customer_cart LEFT natural JOIN food_item on food_item.food_item_id= customer_cart.food_item_id WHERE customer_cart.customer_email = usermail; END
+$$
+
+
 

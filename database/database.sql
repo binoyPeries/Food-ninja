@@ -57,34 +57,40 @@ CREATE TABLE `food_item` (
 
 
 
-CREATE TABLE `registered_customer_cart` (
-  `Cart_id` INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `Customer_id` INT  NOT NULL,
-  FOREIGN KEY (`Customer_id`) REFERENCES customer(`Customer_id`),
-
-);
-
-CREATE TABLE `cart_addition` (
-  `cart_id` int NOT NULL ,
+CREATE TABLE `customer_cart` (
+  `customer_email` VARCHAR (50) NOT  NULL ,
   `food_item_id` varchar(6) NOT NULL,
-    PRIMARY key (`cart_id`),
-   FOREIGN KEY (`cart_id`) REFERENCES customer(`customer_id`),
-   FOREIGN KEY (`food_item_id`) REFERENCES food_item(`food_item_id`)    
-);
+  FOREIGN KEY (`customer_email`) REFERENCES customer(`email`),
+  FOREIGN KEY (`food_item_id`) REFERENCES food_item(`food_item_id`)
 
-CREATE TABLE `guest_customer_cart` (
-  `Cart_id` INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `guest_id` INT  NOT NULL,
-  FOREIGN KEY (`guest_id`) REFERENCES guest_customer(`Guest_id`),
+
 
 );
 
-CREATE TABLE `guest_cart_addition` (
-  `cart_id` int NOT NULL ,
-  `food_item_id` varchar(6) NOT NULL,
-    PRIMARY key (`cart_id`,`food_item_id`),
-   FOREIGN KEY (`cart_id`) REFERENCES guest_customer_cart(`Cart_id`),
-   FOREIGN KEY (`food_item_id`) REFERENCES food_item(`food_item_id`)    
-);
+-- CREATE TABLE `cart_addition` (
+--   `cart_id` int NOT NULL ,
+--   `food_item_id` varchar(6) NOT NULL,
+--     PRIMARY key (`cart_id`),
+--    FOREIGN KEY (`cart_id`) REFERENCES customer(`customer_id`),
+--    FOREIGN KEY (`food_item_id`) REFERENCES food_item(`food_item_id`)    
+-- );
+
+
+
+
+-- CREATE TABLE `guest_customer_cart` (
+--   `Cart_id` INT  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--   `guest_id` INT  NOT NULL,
+--   FOREIGN KEY (`guest_id`) REFERENCES guest_customer(`Guest_id`),
+
+-- );
+
+-- CREATE TABLE `guest_cart_addition` (
+--   `cart_id` int NOT NULL ,
+--   `food_item_id` varchar(6) NOT NULL,
+--     PRIMARY key (`cart_id`,`food_item_id`),
+--    FOREIGN KEY (`cart_id`) REFERENCES guest_customer_cart(`Cart_id`),
+--    FOREIGN KEY (`food_item_id`) REFERENCES food_item(`food_item_id`)    
+-- );
 
 

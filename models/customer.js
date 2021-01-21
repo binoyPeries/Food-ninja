@@ -35,6 +35,23 @@ module.exports= class Customer {
         
     }
 
+    static getCart(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL getcart(?)",
+                [
+                    request.userEmail
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(results);
+                }
+            )
+        })
+      
+    }
+
    
     
 
