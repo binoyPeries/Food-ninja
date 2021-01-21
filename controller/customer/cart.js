@@ -7,7 +7,6 @@ async function getCart(request,response){
         const res2 = await Customer.getTotalPrice(request);
         const result = JSON.parse(JSON.stringify(res[0]));
         const total = JSON.parse(JSON.stringify(res2[0]));
-        console.log(total);
         response.render('customer/cart.html',{result: result, req:request ,total:total});
         
     } catch (error) {

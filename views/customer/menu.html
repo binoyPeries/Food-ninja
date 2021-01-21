@@ -24,7 +24,7 @@
                   </a>
               </div>
               <div class="favorites sbox bt">
-                  <a href="./Favorites.html">Favorites</a>
+                  <a href="/customer_func/favourites/view">Favorites</a>
               </div>
               <div class="logout sbox bt">
                   <a href="/">Home</a>
@@ -46,11 +46,17 @@
                               <div class= "bt-s">
                                   <form action="/customer_func/menu/view" method="post">
                                         <input type="text"  name="item" value='<%= food.food_item_id %>' hidden>
+                                        <input type="text"  name="method_type" value='<%= 1 %>' hidden>
                                         <input type="image" src="/images/shopping_cart_24px.png"  style="height:35px; margin-right: 20px;">
                                   </form>
-                                  <!-- <img id="shoppingcart" class="cart" src="/images/shopping_cart_24px.png" height="50%"> -->
+                                 
+                                  <form action="/customer_func/menu/view" method="post">
+                                    <input type="text"  name="item" value='<%= food.food_item_id %>' hidden>
+                                    <input type="text"  name="method_type" value='<%= 2 %>' hidden>
+                                    <input type="image" src="/images/favorite_border_24px_outlined.png" style="height:35px; ">
+                              </form>
 
-                                  <input type="image" src="/images/favorite_border_24px_outlined.png" style="height:35px; ">
+                                 
                               </div>
 
                           </div>
