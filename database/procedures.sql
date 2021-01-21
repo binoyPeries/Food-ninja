@@ -72,22 +72,39 @@ END$$
 
 --cart related
 
-DELIMITER
-$$
- CREATE OR REPLACE  PROCEDURE getLoggedcustomer(useremail VARCHAR (50) )
-   BEGIN 
-   SELECT  Customer_id FROM  customer WHERE email = useremail;END
-$$
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE `add_to_cart` (
-  `cart_id` INT ,
+  `customer_email` VARCHAR (50) ,
   `food_item_id` VARCHAR(6)
   )
 BEGIN
     set AUTOCOMMIT = 0;
-    INSERT INTO `cart_addition` (`cart_id`,`food_item_id`) VALUES 
-    (cart_id,food_item_id);
+    INSERT INTO `customer_cart` (`customer_email`,`food_item_id`) VALUES 
+    (customer_email,food_item_id);
     commit;
 END$$
+
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE getcartItem(usermail VARCHAR (50))
+   BEGIN 
+     DELETE FROM customer_cart where customer_cart.customer_email= useremail AND customer_cart.food_item_id= item; END
+$$
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE removeCartItem(usermail VARCHAR (50))
+   BEGIN 
+     DELETE FROM customer_cart where customer_cart.customer_email= useremail AND customer_cart.food_item_id= item; END
+$$
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE totalPrice(usermail VARCHAR (50))
+   BEGIN 
+     SELECT  SUM(food_item.price) as total_price from customer_cart LEFT JOIN food_item ON customer_cart.food_item_id = food_item.food_item_id where customer_cart.customer_email=usermail; END
+$$
+
 
