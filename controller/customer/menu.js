@@ -14,5 +14,16 @@ async function getMenu(request,response){
     
 }
 
+async function addToCart(request,response) {
+    try {
+        await Customer.add_to_cart(request);
+    } catch (error) {
+        console.log(error);
+    }
+    console.log("noicee");
+    response.redirect('back');
+}
 exports.getMenu = getMenu;
+
+exports.addToCart = addToCart;
 

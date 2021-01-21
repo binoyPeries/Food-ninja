@@ -44,9 +44,13 @@
                               </div>
                               <br>
                               <div class= "bt-s">
-                                  <img class="cart " src="/images/shopping_cart_24px.png" height="50%">
+                                  <form action="/customer_func/menu/view" method="post">
+                                        <input type="text"  name="item" value='<%= food.food_item_id %>' hidden>
+                                        <input type="image" src="/images/shopping_cart_24px.png"  style="height:35px; margin-right: 20px;">
+                                  </form>
+                                  <!-- <img id="shoppingcart" class="cart" src="/images/shopping_cart_24px.png" height="50%"> -->
 
-                                  <img class="fav_button " src="/images/favorite_border_24px_outlined.png" height="50%">
+                                  <input type="image" src="/images/favorite_border_24px_outlined.png" style="height:35px; ">
                               </div>
 
                           </div>
