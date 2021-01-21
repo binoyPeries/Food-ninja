@@ -52,6 +52,24 @@ module.exports= class Customer {
       
     }
 
+    static removeCartItem(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL removeCartItem(?,?)",
+                [
+                    request.userEmail,
+                    request.body.item
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve("removed noice");
+                }
+            )
+        })
+      
+    }
+
    
     
 

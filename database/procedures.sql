@@ -96,8 +96,9 @@ DELIMITER
 $$
  CREATE OR REPLACE  PROCEDURE getcartItem(usermail VARCHAR (50))
    BEGIN 
-   SELECT customer_cart.food_item_id, food_item.food_item_name, food_item.price  FROM customer_cart LEFT natural JOIN food_item on food_item.food_item_id= customer_cart.food_item_id WHERE customer_cart.customer_email = usermail; END
+     DELETE FROM customer_cart where customer_cart.customer_email= useremail AND customer_cart.food_item_id= item; END
 $$
+
 
 
 

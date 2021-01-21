@@ -5,7 +5,7 @@ async function getCart(request,response){
         console.log(request.userEmail);
         const res = await Customer.getCart(request);
         const result = JSON.parse(JSON.stringify(res[0]))
-        response.render('customer/cart.html',{result: result});
+        response.render('customer/cart.html',{result: result, req:request});
         // const result = JSON.parse(JSON.stringify(res[0]))
         // response.render('customer/menu.html',{result: result});
         
@@ -17,5 +17,20 @@ async function getCart(request,response){
     
 }
 
+async function removeCartItem(request,response){
+    try {
+         await Customer.removeCartItem(request);
+       
+        
+    } catch (error) {
+        response.send(error.message);
+        
+    }
+    response.redirect('back');
+    
+    
+}
+
 
 exports.getCart = getCart;
+exports.removeCartItem = removeCartItem;

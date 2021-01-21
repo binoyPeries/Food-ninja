@@ -22,13 +22,9 @@
                 </a>
             </div>
             <div class="username sbox">
-                <p>Hi, Test</p>
+                <p>Hi, <%= req.userEmail%></p>
             </div>
-            <div class="cart sbox">
-                <a href="">
-                    <img src="/images/shopping_cart_24px.png" alt="cart" height="50px">
-                </a>
-            </div>
+        
             <div class="favorites sbox bt">
                 <a href="/customer_func/menu/view"> Menu</a>
             </div>
@@ -36,28 +32,34 @@
                 <a href="/">Dashboard</a>
             </div>
         </div><!--end of upper nav-->
+        <div class="container-fluid" style="overflow-y: scroll;">
         <div class='cartTable'>
             <div class="col-md-12">
                 <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting'; margin-top: 5px;">CART</h1>
                 <button type="button" class="btn btn-grad btn-outline-dark float-right">Proceed</button>
             </div>
-            <div>
-                <table class="table table-hover bg-warning">
+            
+                <table class="table table-hover bg-warning" >
                     <thead>
                     </thead>
-                    <tbody>
+                    <tbody >
                         <%  result.forEach(item => { %>
                             <tr>
+                                <form action="/customer_func/cart/view" method="post">
                                 <td><%= item.food_item_name %></td>
                                 <td><%= item.price %></td>
-                                <td> <input class="form-check-input" type="checkbox" value="" id="invalidCheck2"></td>
+                                <td>
+                                    <input type="text"  name="item" value='<%= item.food_item_id  %> ' hidden>
+                                    <input type="image" src="/images/shopping_cart_24px.png"  style="height:35px; margin-right: 20px;">
+                                </td>
                               </tr>
+                            </form>
                             
                        <% }); %>  
                      
                      
                     </tbody>
-                  </table>
+                </table>
             </div>
         </div>
     </div>
