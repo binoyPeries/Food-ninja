@@ -52,13 +52,20 @@
                                     <input type="text"  name="item" value='<%= item.food_item_id  %> ' hidden>
                                     <input type="image" src="/images/shopping_cart_24px.png"  style="height:35px; margin-right: 20px;">
                                 </td>
-                              </tr>
                             </form>
+                            </tr>
                             
-                       <% }); %>  
-                     
-                     
+                       <% }); %> 
+                            <tr>
+                                <td> <b>TOTAL</b>   </td>
+                                <td>Rs.</td>
+                                <td>  <b> <%= total[0].total_price %></b> </td>
+
+                            </tr>
+                            
+                                
                     </tbody>
+
                 </table>
             </div>
         </div>

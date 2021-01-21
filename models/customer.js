@@ -1,4 +1,5 @@
 const { request } = require('express');
+const { result } = require('lodash');
 const {pool} = require('../startup/mysql_database');
 
 module.exports= class Customer {
@@ -64,6 +65,23 @@ module.exports= class Customer {
                         reject(error);
                     };
                     resolve("removed noice");
+                }
+            )
+        })
+      
+    }
+
+    static getTotalPrice(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL totalPrice(?)",
+                [
+                    request.userEmail,
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(results);
                 }
             )
         })
