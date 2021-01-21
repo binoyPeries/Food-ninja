@@ -88,14 +88,14 @@ END$$
 
 DELIMITER
 $$
- CREATE OR REPLACE  PROCEDURE getcartItem(usermail VARCHAR (50))
+ CREATE OR REPLACE  PROCEDURE getcart(usermail VARCHAR (50))
    BEGIN 
-     DELETE FROM customer_cart where customer_cart.customer_email= useremail AND customer_cart.food_item_id= item; END
-$$
+   SELECT customer_cart.food_item_id, food_item.food_item_name, food_item.price FROM customer_cart LEFT  JOIN food_item on food_item.food_item_id= customer_cart.food_item_id WHERE customer_cart.customer_email = usermail; END
+   $$
 
 DELIMITER
 $$
- CREATE OR REPLACE  PROCEDURE removeCartItem(usermail VARCHAR (50))
+ CREATE OR REPLACE  PROCEDURE removeCartItem(usermail VARCHAR (50) ,item VARCHAR (6) )
    BEGIN 
      DELETE FROM customer_cart where customer_cart.customer_email= useremail AND customer_cart.food_item_id= item; END
 $$
@@ -108,3 +108,31 @@ $$
 $$
 
 
+-- fvaourites 
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `add_to_fav` (
+  `customer_email` VARCHAR (50) ,
+  `food_item_id` VARCHAR(6)
+  )
+BEGIN
+    set AUTOCOMMIT = 0;
+    INSERT INTO `customer_favourites` (`customer_email`,`food_item_id`) VALUES 
+    (customer_email,food_item_id);
+    commit;
+END$$
+
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE getFav(usermail VARCHAR (50))
+  BEGIN 
+   SELECT customer_favourites.food_item_id, food_item.food_item_name, food_item.price FROM customer_favourites LEFT  JOIN food_item on food_item.food_item_id= customer_favourites.food_item_id WHERE customer_favourites.customer_email = usermail; END
+   $$
+
+
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE removeFavItem(useremail VARCHAR (50), item VARCHAR(6))
+   BEGIN 
+     DELETE FROM customer_favourites where customer_favourites.customer_email= useremail AND customer_favourites.food_item_id= item; END
+$$

@@ -71,6 +71,26 @@ module.exports= class Customer {
       
     }
 
+    
+    static add_to_fav(request){
+        return new Promise((resolve,reject) =>{
+            pool.query("CALL add_to_fav(?,?)",
+            [
+                request.userEmail,
+                request.body.item
+            ],
+            (error, results, fields) => {
+                if (error) {
+                    reject(error);
+                };
+                resolve(console.log('doneeee'));
+            }
+        )
+
+        })
+        
+    }
+
     static getTotalPrice(request) {
         return new Promise((resolve, reject) => {
             pool.query("CALL totalPrice(?)",
@@ -82,6 +102,41 @@ module.exports= class Customer {
                         reject(error);
                     };
                     resolve(results);
+                }
+            )
+        })
+      
+    }
+
+    static getFav(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL getFav(?)",
+                [
+                    request.userEmail
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(results);
+                }
+            )
+        })
+      
+    }
+
+    static removeFavItem(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL removeFavItem(?,?)",
+                [
+                    request.userEmail,
+                    request.body.item
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve("removed noice");
                 }
             )
         })

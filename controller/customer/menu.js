@@ -15,8 +15,19 @@ async function getMenu(request,response){
 }
 
 async function addToCart(request,response) {
+    // 1 means cart
+    // 2 means favourite
     try {
-        await Customer.add_to_cart(request);
+        if(request.body.method_type ==1){
+            await Customer.add_to_cart(request);
+        }
+
+        else if(request.body.method_type ==2){
+            await Customer.add_to_fav(request);
+
+
+        }
+        
     } catch (error) {
         console.log(error);
     }
