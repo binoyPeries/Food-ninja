@@ -26,7 +26,7 @@ async function removeFavItem(request,response){
         response.send(error.message);
         
     }
-    response.redirect('back');
+    response.send("entry was succesful");
     
     
 }

@@ -10,7 +10,7 @@ const isManager = require('../../middleware/manager');
 
 
 router.get('/create' , [isLogged,isManager],(request,response) =>{
-    response.sendFile(path.join(__dirname, '../../views/manager/employee_creation.html'));
+    response.render('manager/employee_creation.html',{req:request});
 
 });
 

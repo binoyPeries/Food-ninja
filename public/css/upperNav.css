@@ -1,0 +1,30 @@
+.upper-nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    height: 10%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 35%;
+}
+
+.sbox {
+    display: flex;
+    align-items: center;
+}
+
+.bt {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom right, #030302, #948353);
+    margin: 0.5% 2% 0.5% 0;
+}
+
+.bt a {
+    color: white;
+}

@@ -74,6 +74,28 @@ module.exports= class Manager {
         
     }
 
+    static addDiscount(body) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL create_discount (?,?,?,?,?)",
+                [
+                    body.discount_description,
+                    body.eligible_price,
+                    body.discount_percentage,
+                    body.start_date,
+                    body.end_date
+                ],
+                function (error, results, fields) {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(console.log("entered sucessfully"));
+                }
+            )
+        })
+    
+        
+    }
+
     
 
 }

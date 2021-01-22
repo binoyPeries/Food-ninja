@@ -155,3 +155,28 @@ BEGIN
     (name,contact_number,vehicle_type,vehicle_number,email,password);
     commit;
 END$$
+
+
+---discount ADD 
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `create_discount` (
+    `discount_description` VARCHAR(200),
+    `eligible_price` NUMERIC(8,2) ,
+    `discount_percentage` NUMERIC(4,2),
+    `start_date`  DATE ,
+    `end_date` DATE  
+   
+  )
+BEGIN
+    set AUTOCOMMIT = 0;
+    INSERT INTO `discount` (`discount_description`,`eligible_price`,`discount_percentage`,`start_date`,`end_date`) VALUES 
+    (discount_description,eligible_price,discount_percentage,start_date,end_date);
+    commit;
+END$$
+
+--events ADD 
+CREATE EVENT IF NOT EXISTS removeeExpiredDiscounts
+ON SCHEDULE
+EVERY 1 DAY 
+DELETE FROM discount WHERE discount.end_date < NOW();
