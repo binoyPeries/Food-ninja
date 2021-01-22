@@ -136,3 +136,22 @@ $$
    BEGIN 
      DELETE FROM customer_favourites where customer_favourites.customer_email= useremail AND customer_favourites.food_item_id= item; END
 $$
+
+--delivery person
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `create_driver` (
+    `name` VARCHAR(30),
+    `contact_number` INT ,
+    `vehicle_type` VARCHAR (20),
+    `vehicle_number`  VARCHAR (10),
+    `email` VARCHAR(50) ,
+    `password` VARCHAR (100) 
+   
+  )
+BEGIN
+    set AUTOCOMMIT = 0;
+    INSERT INTO `delivery_person` (`name`,`contact_number`,`vehicle_type`,`vehicle_number`,`email`,`password`) VALUES 
+    (name,contact_number,vehicle_type,vehicle_number,email,password);
+    commit;
+END$$

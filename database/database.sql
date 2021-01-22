@@ -38,12 +38,6 @@ CREATE TABLE `customer` (
   `password` VARCHAR (100) NOT NULL, 
 );
 
-CREATE TABLE `guest_customer` (
-  `Guest_id` INT  NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-  `Guest_name` varchar(30) NOT NULL,
-  `Address` varchar(50) NOT NULL,
-  `Contact_number` int NOT NULL
-);
 
 
 CREATE TABLE `food_item` (

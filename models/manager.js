@@ -48,6 +48,32 @@ module.exports= class Manager {
     
         
     }
+
+
+    static insertDriver(body) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL create_driver (?,?,?,?,?,?)",
+                [
+                    body.name,
+                    body.contact_number,
+                    body.vehicle_type,
+                    body.vehicle_number,
+                    body.email,
+                    body.password
+                    
+                ],
+                function (error, results, fields) {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(console.log("entered sucessfully"));
+                }
+            )
+        })
+    
+        
+    }
+
     
 
 }
