@@ -80,4 +80,11 @@ CREATE TABLE `discount` (
   `End_date` DATE  NOT NULL
 );
 
+CREATE  TABLE `order_cart`(
+  `order_id`  INT NOT NULL ,
+  `customer_email` VARCHAR(50) not NULL ,
+  `food_item_id`  varchar(6)
+
+);
+
 

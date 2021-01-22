@@ -180,3 +180,36 @@ CREATE EVENT IF NOT EXISTS removeeExpiredDiscounts
 ON SCHEDULE
 EVERY 1 DAY 
 DELETE FROM discount WHERE discount.end_date < NOW();
+
+
+
+--- order related
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE tranfertoOrder(useremail VARCHAR (50) )
+   BEGIN 
+   DECLARE id Int DEFAULT 0;
+   START TRANSACTION;
+   SELECT max(order_cart.order_id) INTO id from order_cart;
+   INSERT INTO `order_cart` (order_cart.customer_email, order_cart.food_item_id, order_cart.order_id) SELECT *,id+1  from `customer_cart` where customer_cart.customer_email = useremail; 
+   DELETE  from `customer_cart` WHERE customer_cart.customer_email = useremail;
+    COMMIT; END
+  $$
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `login_customer` 
+(IN `email_value` VARCHAR(50))
+BEGIN
+   SELECT  * FROM  order_cart WHERE order_id in ( SELECT max(order_cart.order_id) from order_cart where customer_email =  );;
+
+END$$
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE getCurrentOrder(userEmail VARCHAR (50))
+   BEGIN 
+   SELECT  * FROM  order_cart WHERE order_id in ( SELECT max(order_cart.order_id) from order_cart where customer_email =userEmail); end
+$$
+
+--IMPORTANT *******
+
+
