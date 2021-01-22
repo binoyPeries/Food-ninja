@@ -3,37 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/upperNav.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/styleform.css">
+    <title>Driver Registration</title>
 </head>
 <body>
+    <div class="main-container">
+        <div class="upper-nav">
+            <div class="logo">
+                <a href="'/'">
+                    <img src="/images/Logo.png" alt="logo" height="100%">
+                </a>
+            </div>
+            <div class="username sbox">
+                <p>Hi, Test</p>
+            </div>
     
-    <form action="/manager_func/driver/create" method="POST">
-        Employee Name: <input type="text" name="name">
-        <br>
+            <div class="meal-menu sbox bt">
+                <a href="/">Dashboard</a>
+            </div>
+            <div class="logout sbox bt">
+                <a href="">Logout</a>
+            </div>
+        </div>
 
-        Contact Number: <input type="number"  name="contact_number">
-        <br>
+        <div class="container">
+            <div class="form">
+                <form action="/manager_func/driver/create" method="POST">
+                    <div class="row">
+                        <label for="name"> Employee Name </label>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="row">
+                        <label for="contact_number"> Contact Number </label>
+                        <input type="number"  name="contact_number">
+                    </div>
+                    <div class="row">
+                        <label for="vehical_type"> Vehical Type </label>
+                        <input type="text"  name="vehicle_type">
+                    </div>
+                    <div class="row">
+                        <label for="vehical_no"> Vehical No. </label>
+                        <input type="text"  name="vehicle_number">
+                    </div>
+                    <div class="row">
+                        <label for="email"> Email </label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="row">
+                        <label for="password"> Password </label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="row">
+                        <input style="background-image: linear-gradient(to bottom right, #030302, #948353);" type="submit" placeholder="Submit">
+                    </div>
+                </form>
 
-        Vehicle Type: <input type="text"  name="vehicle_type">
-        <br>
-
-        Vehicle NO: <input type="text"  name="vehicle_number">
-        <br>
-
-        E-mail Address: <input type="email" id="email" name="email" required>
-        <br>
-
-        Password: <input type="password" id="password" name="password" required>
-        <br>
-
-
-        
-
-        
-        
-        <input type="submit" >
-    </form>
-    
-    
+                <div class="detalis" style="margin-right: 30px;">
+                    <p style="text-align: center; font-size: 30px;">Driver <br> Registration</p>
+                    <img src="/images/Logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>    
 </body>
 </html>
+
