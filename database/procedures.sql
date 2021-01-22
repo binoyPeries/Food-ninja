@@ -207,7 +207,8 @@ END$$
 DELIMITER $$
  CREATE OR REPLACE  PROCEDURE getCurrentOrder(userEmail VARCHAR (50))
    BEGIN 
-   SELECT  * FROM  order_cart WHERE order_id in ( SELECT max(order_cart.order_id) from order_cart where customer_email =userEmail); end
+   BEGIN 
+   SELECT  order_id, order_cart.food_item_id, food_item.food_item_name, food_item.price FROM  order_cart left join food_item on order_cart.food_item_id = food_item.food_item_id WHERE order_id in ( SELECT max(order_cart.order_id) from order_cart where customer_email =userEmail); end
 $$
 
 --IMPORTANT *******

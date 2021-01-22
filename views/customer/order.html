@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="/css/cart.css">
 
 
-    <title>Cart</title>
+    <title>order</title>
 </head>
 <body>
-    <div class="main-container">
+    <div class="main-container" style="overflow-y: auto;">
         <div class="upper-nav">
             <div class="logo">
                 <a href="/">
@@ -25,46 +25,44 @@
                 <p>Hi, <%= req.userEmail%></p>
             </div>
         
-            <div class="favorites sbox bt">
-                <a href="/customer_func/menu/view"> Menu</a>
-            </div>
             <div class="logout sbox bt">
                 <a href="/">Dashboard</a>
             </div>
         </div><!--end of upper nav-->
-        <div class="container-fluid" style="overflow-y: scroll;">
+        <div class="container-fluid" style=" width: 80%;">
         <div class='cartTable'>
             <div class="col-md-12">
                 <br>
-                <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting'; margin-top: 5px;">CART</h1>
-                <form action="/customer_func/cart/order" method="get">
-                <button type="submit" class="btn btn-grad btn-outline-dark float-right">Proceed</button>
-                </form>
+                <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';">Current Order</h1>
+                <h3 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';">Order ID: <%= order[0].order_id %> </h3>
+                <button type="button" class="btn btn-grad btn-outline-dark float-right">Confirm Order </button>
             </div>
             
                 <table class="table table-hover bg-warning" >
                     <thead>
                     </thead>
                     <tbody >
-                        <%  result.forEach(item => { %>
+                        <tr>
+                            <td> <b>Item Name</b> </td>
+                            <td><b>Price(Rs.)</b> </td>
+                        </tr>
+                        <% let total =0; %> 
+                        <%  order.forEach(item => { %>   
                             <tr>
-                                <form action="/customer_func/cart/view" method="post">
+
                                 <td><%= item.food_item_name %></td>
                                 <td><%= item.price %></td>
-                                <td>
-                                    <input type="text"  name="item" value='<%= item.food_item_id  %> ' hidden>
-                                    <input type="image" src="/images/shopping_cart_24px.png"  style="height:35px; margin-right: 20px;">
-                                </td>
-                            </form>
+                                <% total+=item.price  %> 
+                
+                                
                             </tr>
                             
                        <% }); %> 
-                            <tr>
-                                <td> <b>TOTAL</b>   </td>
-                                <td>Rs.</td>
-                                <td>  <b> <%= total[0].total_price %></b> </td>
+                        <tr>
+                        <td> <b>TOTAL</b>   </td>
+                        <td>  <b> <%= total %></b> </td>
 
-                            </tr>
+                        </tr>
                             
                                 
                     </tbody>
