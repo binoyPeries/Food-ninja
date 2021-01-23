@@ -1,44 +1,49 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Dashboard</title>
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/upperNav.css">
+    <link rel="stylesheet" href="/css/styleform.css">
 </head>
 <body>
+    <div class="main-container">
+        <div class="welcome">
+            <div class="logo">
+                <img src="/images/Logo.png" alt="" height="100%">
+            </div>
+            <div class="message">
+                Welcome to Your Dashboard!
+            </div>
+            <div>
+                <form action="/logout" method="POST">
+                    <input type="submit" class="logoutview" value="Logout">
+                </form>
 
-    manager Home Page
+            </div>
+        </div>
+        <div class="dashboard">
+            <a href="/manager_func/employee/create" class="view">Add Employee</a>
+            <a href="/manager_func/driver/create" class="view">Add  Driver </a>
+            <a href="/manager_func/discount/add" class="view"> Add Discount</a>
+            <a href="/manager_func/food_items/add" class="view"> Add Food Item</a>
+            
+            
+        </div>  
+
+        
 
 
-    <br>
-    <br>
-    <br>
-    Logout:
 
-    <form action="/logout" method="POST">
-        <input type="submit">
-    </form>
- 
-    create employee:
-    <form action="/manager_func/employee/create" method="GET">
-        <input type="submit">
-    </form>
 
-    add food item:
-    <form action="/manager_func/food_items/add" method="GET">
-        <input type="submit">
-    </form>
 
-    create driver:
-    <form action="/manager_func/driver/create" method="GET">
-        <input type="submit">
-    </form>
 
-    create discount:
-    <form action="/manager_func/discount/add" method="GET">
-        <input type="submit">
-    </form>
 
-    
-</body>
-</html>
+
+
+
+
