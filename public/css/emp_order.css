@@ -1,0 +1,116 @@
+body {
+    font-family: Cambria;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/Background.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: 10;
+}
+
+.upper-nav {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    height: 10%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 35%;
+}
+
+.sbox {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+
+.bt {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    border-radius: 30%;
+    background-image: linear-gradient(to bottom right, #030302, #948353);
+    margin: 0.5% 2% 0.5% 0;
+}
+
+.bt a {
+    color: white;
+}
+
+.container {
+    position: fixed;
+    top: 10%;
+    height: 90%;
+    width: 100%;
+}
+
+td{
+    background-color: rgb(245, 204, 88);
+}
+
+tr{
+    border: 25px solid white;  
+    border-radius: 10px;
+    font-size: large;
+}
+
+th{
+    background-color: white;
+    font-size: larger;
+}
+.btn{
+    background-color: rgb(17, 202, 41);   
+}
+table{
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.btn-grad {background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC  51%, #02AAB0  100%)}
+     .btn-grad {
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+      }
+
+      .btn-grad:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+
+.cartTable{
+    margin: 10px;
+    margin-top: 100px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.pageTitle{
+    position: relative;
+    left: 10%;
+    top: 2%;
+}
+
+.pencil{
+    height: 20%;
+}

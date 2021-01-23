@@ -46,6 +46,12 @@
                     <thead>
                     </thead>
                     <tbody >
+                        <tr>
+                            <td> <b>Item Name</b> </td>
+                            <td><b>Price(Rs.)</b> </td>
+                            <td></td>
+                            
+                        </tr>
                         <%  result.forEach(item => { %>
                             <tr>
                                 <form action="/customer_func/cart/view" method="post">
@@ -53,7 +59,7 @@
                                 <td><%= item.price %></td>
                                 <td>
                                     <input type="text"  name="item" value='<%= item.food_item_id  %> ' hidden>
-                                    <input type="image" src="/images/shopping_cart_24px.png"  style="height:35px; margin-right: 20px;">
+                                    <input type="image" src="/images/cancel.png"  style="height:35px; margin-right: 20px;">
                                 </td>
                             </form>
                             </tr>
@@ -61,8 +67,8 @@
                        <% }); %> 
                             <tr>
                                 <td> <b>TOTAL</b>   </td>
-                                <td>Rs.</td>
-                                <td>  <b> <%= total[0].total_price %></b> </td>
+                                <td>  <b> Rs. <%= total[0].total_price %></b> </td>
+                                <td></td>
 
                             </tr>
                             

@@ -1,32 +1,40 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Dashboard</title>
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/upperNav.css">
+    <link rel="stylesheet" href="/css/styleform.css">
 </head>
 <body>
-    Customer Home Page
+    <div class="main-container">
+        <div class="welcome">
+            <div class="logo">
+                <img src="/images/Logo.png" alt="" height="100%">
+            </div>
+            <div class="message">
+                Welcome to Your Dashboard!
+            </div>
+            <div>
+                <form action="/logout" method="POST">
+                    <input type="submit" class="logoutview" value="Logout">
+                </form>
 
+            </div>
+        </div>
+        <div class="dashboard">
+            <a href="/customer_func/menu/view" class="view">Menu</a>
+            <a href="/customer_func/cart/view" class="view">My Cart </a>
+            <a href="/customer_func//favourites/view" class="view"> My Favourites</a>
+           
+            
+            
+        </div>  
 
-        <br>
-        <br>
-        <br>
-        Logout:
-
-        <form action="/logout" method="POST">
-            <input type="submit">
-        </form>
-
-        show menu:
-    <form action="/customer_func/menu/view" method="GET">
-        <input type="submit">
-    </form>
-
-    show cart:
-    <form action="/customer_func/cart/view" method="GET">
-        <input type="submit">
-    </form>
     
-</body>
+
 </html>

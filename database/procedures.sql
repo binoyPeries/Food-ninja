@@ -255,3 +255,9 @@ BEGIN
     (name,contact_number,vehicle_type,vehicle_number,email,password);
     commit;
 END$$
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE getAllOrder()
+   BEGIN 
+   SELECT  order_id, order_cart.food_item_id, food_item.food_item_name, food_item.price FROM  order_cart left join food_item on order_cart.food_item_id = food_item.food_item_id ; end
+$$
