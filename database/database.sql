@@ -57,8 +57,6 @@ CREATE TABLE `customer_cart` (
   FOREIGN KEY (`customer_email`) REFERENCES customer(`email`),
   FOREIGN KEY (`food_item_id`) REFERENCES food_item(`food_item_id`)
 
-
-
 );
 
 CREATE TABLE `customer_favourites` (
@@ -76,8 +74,8 @@ CREATE TABLE `discount` (
   `Discount_description` varchar(200) NOT NULL,
   `Eligible_price` double(8,2) NOT NULL,
   `Discount_percentage` double(4,2) NOT NULL,
-  `Start_date` DATE  NOT NULL,
-  `End_date` DATE  NOT NULL
+  `Start_date` DATETIME   NOT NULL,
+  `End_date` DATETIME   NOT NULL
 );
 
 CREATE  TABLE `order_cart`(

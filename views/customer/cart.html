@@ -38,7 +38,7 @@
                 <br>
                 <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting'; margin-top: 5px;">CART</h1>
                 <form action="/customer_func/cart/order" method="get">
-                <button type="submit" class="btn btn-grad btn-outline-dark float-right">Proceed</button>
+                <button type="submit" class="btn btn-grad btn-outline-dark float-right" <% if(!result[0]){ %> disabled <% } %> >Proceed</button>
                 </form>
             </div>
             
