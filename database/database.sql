@@ -37,6 +37,7 @@ CREATE TABLE `customer` (
    `email` VARCHAR(50) NOT  NULL UNIQUE ,
   `password` VARCHAR (100) NOT NULL, 
 );
+ALTER TABLE customer MODIFY COLUMN `Loyalty_Points` INT  DEFAULT 100;
 
 
 

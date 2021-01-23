@@ -14,6 +14,25 @@ BEGIN
     commit;
 END$$
 
+---customer
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `create_customer` (
+  `customer_id` INT,
+  `customer_name` VARCHAR(30),
+   `address` VARCHAR(50) ,
+   `contact_number` INT,
+   `email` VARCHAR (50),
+   `password` VARCHAR (100) 
+   
+   
+  )
+BEGIN
+    set AUTOCOMMIT = 0;
+    INSERT INTO `customer` (`Customer_id`,`Customer_name`,`Address`,`Contact_number`,`email`,`password`) VALUES 
+    (customer_id,customer_name,address,contact_number,email,password);
+    commit;
+END$$
+
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE `create_food_item` (
   `food_item_id` VARCHAR(30),
