@@ -3,31 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/upperNav.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/styleform.css">
+    <title>Add Discount</title>
 </head>
 <body>
-    
-    <form action="/manager_func/discount/add" method="POST">
-        Discount Description: 
-        <textarea type="text" name="discount_description" cols="10" rows="5"></textarea>
-        <br>
+    <div class="main-container">
+        <div class="upper-nav">
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/Logo.png" alt="logo" height="100%">
+                </a>
+            </div>
+            <div class="username sbox">
+                <p>Hi, Test</p>
+            </div>
+            <div class="meal-menu sbox bt">
+                <a href="./FoodMenu.html">Meal Menu</a>
+            </div>
+            <div class="logout sbox bt">
+                <a href="">Logout</a>
+            </div>
+        </div>
 
-        eligible Price: <input type="text"  name="eligible_price">
-        <br>
+        <div class="container">
+            <div class="form">
+                <form action="/manager_func/discount/add" method="POST">
+                    <div class="row" style="margin-top: 30%;">
+                        <label for="discount"> Discount Description</label>
+                        <textarea type="text" name="discount_description" cols="10" rows="5"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="discount">  eligible Price</label>
+                        <input type="text"  name="eligible_price">
+                    </div>
+                    <div class="row">
+                        <label for="discount">  Discount</label>
+                        <input type="text"  name="discount_percentage" placeholder="percentage">
+                    </div>
+                    <div class="row">
+                        <label for="starting_date"> Starting Date </label>
+                        <input type="datetime-local"  name="start_date">
+                    <br>
+                    </div>
+                    <div class="row">
+                        <label for="vehical_type"> Expiry Date </label>
+                        <input type="datetime-local"  name="end_date">
+                    </div>
+                    <div class="row">
+                        <input style="background-image: linear-gradient(to bottom right, #030302, #948353);" type="submit" placeholder="submit">
+                    </div>
+                </form>
 
-        Discount: <input type="text"  name="discount_percentage">
-        <br>
-
-        start Date: <input type="datetime-local"  name="start_date">
-        <br>
-
-        end Date: <input type="datetime-local"  name="end_date">
-        <br>
-
-
-        <input type="submit" >
-    </form>
-    
-    
+                <div class="detalis" style="margin-right: 10%">
+                    <p style="text-align: center; font-size: 30px;">Add <br> Discount</p>
+                    <img src="/images/Logo.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>    
 </body>
 </html>
+

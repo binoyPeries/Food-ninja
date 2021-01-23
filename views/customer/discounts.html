@@ -11,60 +11,61 @@
     <link rel="stylesheet" href="/css/cart.css">
 
 
-    <title>Cart</title>
+    <title>Eligible Discounts </title>
 </head>
 <body>
-    <div class="main-container">
+    <div class="main-container" style="overflow-y: auto;">
         <div class="upper-nav">
             <div class="logo">
                 <a href="/">
                     <img src="/images/Logo.png" alt="logo" height="100%">
                 </a>
             </div>
-            <div class="username sbox">
+            <div class="username sbox" style="margin-right: auto;">
                 <p>Hi, <%= req.userEmail%></p>
             </div>
-        
-            <div class="favorites sbox bt">
-                <a href="/customer_func/menu/view"> Menu</a>
-            </div>
-            <div class="logout sbox bt">
-                <a href="/">Dashboard</a>
-            </div>
-        </div><!--end of upper nav-->
-        <div class="container-fluid" style="overflow-y: scroll;">
+
+        </div>
+        <div class="container-fluid" style=" width: 80%;">
         <div class='cartTable'>
             <div class="col-md-12">
                 <br>
-                <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting'; margin-top: 5px;">CART</h1>
-                <form action="/customer_func/cart/order" method="get">
-                <button type="submit" class="btn btn-grad btn-outline-dark float-right" <% if(!result[0]){ %> disabled <% } %> >Proceed</button>
-                </form>
+                <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';">Discounts</h1>
+                <h4 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';"> (Eligible Discounts Only)  </h>
+
             </div>
             
                 <table class="table table-hover bg-warning" >
                     <thead>
                     </thead>
                     <tbody >
-                        <%  result.forEach(item => { %>
+                        <tr>
+                            <td> <b>Description</b> </td>
+                            <td><b>Discount(%)</b> </td>
+                            <td><b>deducted Amount(Rs.)</b></td>
+                            <td></td>
+                        </tr>
+                        <%  discount.forEach(item => { %>   
                             <tr>
-                                <form action="/customer_func/cart/view" method="post">
-                                <td><%= item.food_item_name %></td>
-                                <td><%= item.price %></td>
-                                <td>
-                                    <input type="text"  name="item" value='<%= item.food_item_id  %> ' hidden>
-                                    <input type="image" src="/images/shopping_cart_24px.png"  style="height:35px; margin-right: 20px;">
-                                </td>
-                            </form>
+
+                                <td><%= item.discount_description %></td>
+                                <td><%= item.discount_percentage %> %</td>
+                                <% let red_price =req.body.total * item.discount_percentage*0.01 %>
+                                <td>RS. <%= red_price  %> </td>
+
+                                
+
+                                    <td>
+                                        <form action="/customer_func/cart/order/" method="post">
+                                            <input type="text" name="red_price" value="<%= red_price %>" hidden >
+                
+                                        <input type="submit" name="" value="submit">
+                                    </form>
+                                    </td>
+ 
                             </tr>
                             
                        <% }); %> 
-                            <tr>
-                                <td> <b>TOTAL</b>   </td>
-                                <td>Rs.</td>
-                                <td>  <b> <%= total[0].total_price %></b> </td>
-
-                            </tr>
                             
                                 
                     </tbody>

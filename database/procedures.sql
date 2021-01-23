@@ -164,8 +164,8 @@ CREATE OR REPLACE PROCEDURE `create_discount` (
     `discount_description` VARCHAR(200),
     `eligible_price` NUMERIC(8,2) ,
     `discount_percentage` NUMERIC(4,2),
-    `start_date`  DATE ,
-    `end_date` DATE  
+    `start_date`  DATETIME  NOT NULL ,
+    `end_date` DATETIME   NOT NULL 
    
   )
 BEGIN
@@ -187,14 +187,16 @@ DELETE FROM discount WHERE discount.end_date < NOW();
 DELIMITER
 $$
  CREATE OR REPLACE  PROCEDURE tranfertoOrder(useremail VARCHAR (50) )
-   BEGIN 
-   DECLARE id Int DEFAULT 0;
+BEGIN 
+   DECLARE id Int ;
    START TRANSACTION;
    SELECT max(order_cart.order_id) INTO id from order_cart;
-   INSERT INTO `order_cart` (order_cart.customer_email, order_cart.food_item_id, order_cart.order_id) SELECT *,id+1  from `customer_cart` where customer_cart.customer_email = useremail; 
+   IF id is NULL THEN
+   set id =0;
+   end IF;
+   INSERT INTO `order_cart` (order_cart.customer_email, order_cart.food_item_id, order_cart.order_id) SELECT *,(id+1)  from `customer_cart` where customer_cart.customer_email = useremail; 
    DELETE  from `customer_cart` WHERE customer_cart.customer_email = useremail;
     COMMIT; END
-  $$
 
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE `login_customer` 
@@ -207,9 +209,30 @@ END$$
 DELIMITER $$
  CREATE OR REPLACE  PROCEDURE getCurrentOrder(userEmail VARCHAR (50))
    BEGIN 
-   SELECT  * FROM  order_cart WHERE order_id in ( SELECT max(order_cart.order_id) from order_cart where customer_email =userEmail); end
+   BEGIN 
+   SELECT  order_id, order_cart.food_item_id, food_item.food_item_name, food_item.price FROM  order_cart left join food_item on order_cart.food_item_id = food_item.food_item_id WHERE order_id in ( SELECT max(order_cart.order_id) from order_cart where customer_email =userEmail); end
 $$
 
---IMPORTANT *******
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE getdiscounts(total NUMERIC (8,2))
+  BEGIN 
+   SELECT discount.discount_id,discount.discount_description, discount.discount_percentage FROM discount where  discount.eligible_price >total AND discount.end_date > now() AND discount.start_date < now(); END
 
 
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `submit_order` (
+    `name` VARCHAR(30),
+    `contact_number` INT ,
+    `vehicle_type` VARCHAR (20),
+    `vehicle_number`  VARCHAR (10),
+    `email` VARCHAR(50) ,
+    `password` VARCHAR (100) 
+   
+  )
+BEGIN
+    set AUTOCOMMIT = 0;
+    INSERT INTO `delivery_person` (`name`,`contact_number`,`vehicle_type`,`vehicle_number`,`email`,`password`) VALUES 
+    (name,contact_number,vehicle_type,vehicle_number,email,password);
+    commit;
+END$$

@@ -143,6 +143,58 @@ module.exports= class Customer {
       
     }
 
+    static createOrder(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL tranfertoOrder(?)",
+                [
+                    request.userEmail,
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve("order created noiceee");
+                }
+            )
+        })
+      
+    }
+
+    static getCurrentOrder(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL getCurrentOrder(?)",
+                [
+                    request.userEmail,
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(results);
+                }
+            )
+        })
+      
+    
+    }
+    static getDiscount(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL getdiscounts(?)",
+                [
+                    request.body.total,
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(results);
+                }
+            )
+        })
+      
+    
+    }
+
    
     
 
