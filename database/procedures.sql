@@ -218,3 +218,21 @@ $$
  CREATE OR REPLACE  PROCEDURE getdiscounts(total NUMERIC (8,2))
   BEGIN 
    SELECT discount.discount_id,discount.discount_description, discount.discount_percentage FROM discount where  discount.eligible_price >total AND discount.end_date > now() AND discount.start_date < now(); END
+
+
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `submit_order` (
+    `name` VARCHAR(30),
+    `contact_number` INT ,
+    `vehicle_type` VARCHAR (20),
+    `vehicle_number`  VARCHAR (10),
+    `email` VARCHAR(50) ,
+    `password` VARCHAR (100) 
+   
+  )
+BEGIN
+    set AUTOCOMMIT = 0;
+    INSERT INTO `delivery_person` (`name`,`contact_number`,`vehicle_type`,`vehicle_number`,`email`,`password`) VALUES 
+    (name,contact_number,vehicle_type,vehicle_number,email,password);
+    commit;
+END$$

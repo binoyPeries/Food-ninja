@@ -24,6 +24,12 @@
             <div class="username sbox">
                 <p>Hi, <%= req.userEmail%></p>
             </div>
+            <% let final=0;%>
+            <% if(req.body.red_price) {%>
+                <%  final = total - req.body.red_price; %> 
+                <% } else{ %> 
+                <%  final = total; %>
+                <% } %> 
 
             <div class="logout sbox bt" >
             <form action="/customer_func/cart/discount" method="POST">
@@ -43,8 +49,10 @@
                 <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';">Current Order</h1>
                 <h3 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';">Order ID: <%= order[0].order_id %> </h3>
 
-                <form action="" method="GET">
-                <button type="button" class="btn btn-grad btn-outline-dark float-right">Confirm Order </button>
+                <form action="/customer_func/cart/order/final" method="POST">
+                    <input type="text" name="order_id" value="<%= order[0].order_id %>" hidden>
+                    <input type="text" name="total_price" value= "<%= final %>" hidden>
+                <button type="submit" class="btn btn-grad btn-outline-dark float-right">Confirm Order </button>
                 </form>
             </div>
             

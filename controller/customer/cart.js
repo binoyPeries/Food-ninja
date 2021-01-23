@@ -1,3 +1,4 @@
+const { func } = require('joi');
 const Customer = require('../../models/customer');
 
 async function getCart(request,response){
@@ -88,6 +89,13 @@ async function showDiscount(request,response){
     
 }
 
+function loadOrderFinal(request,response) {
+    response.render('customer/final_order.html',{req:request})
+
+
+    
+}
+
 
 
 exports.getCart = getCart;
@@ -95,3 +103,4 @@ exports.removeCartItem = removeCartItem;
 exports.createOrder=createOrder;
 exports.showDiscount = showDiscount;
 exports.getOngoinOrder = getOngoinOrder;
+exports.loadOrderFinal = loadOrderFinal;
