@@ -213,6 +213,8 @@ DELIMITER $$
    SELECT  order_id, order_cart.food_item_id, food_item.food_item_name, food_item.price FROM  order_cart left join food_item on order_cart.food_item_id = food_item.food_item_id WHERE order_id in ( SELECT max(order_cart.order_id) from order_cart where customer_email =userEmail); end
 $$
 
---IMPORTANT *******
-
-
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE getdiscounts(total NUMERIC (8,2))
+  BEGIN 
+   SELECT discount.discount_id,discount.discount_description, discount.discount_percentage FROM discount where  discount.eligible_price >total AND discount.end_date > now() AND discount.start_date < now(); END

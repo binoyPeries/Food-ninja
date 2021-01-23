@@ -177,6 +177,24 @@ module.exports= class Customer {
       
     
     }
+    static getDiscount(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL getdiscounts(?)",
+                [
+                    request.body.total,
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(results);
+                }
+            )
+        })
+      
+    
+    }
+
    
     
 

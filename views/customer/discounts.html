@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/cart.css">
 
 
-    <title>order</title>
+    <title>Eligible Discounts </title>
 </head>
 <body>
     <div class="main-container" style="overflow-y: auto;">
@@ -21,31 +21,18 @@
                     <img src="/images/Logo.png" alt="logo" height="100%">
                 </a>
             </div>
-            <div class="username sbox">
+            <div class="username sbox" style="margin-right: auto;">
                 <p>Hi, <%= req.userEmail%></p>
             </div>
 
-            <div class="logout sbox bt" >
-            <form action="/customer_func/cart/discount" method="POST">
-                    <input type="text" name="total" value="<%= total %> " hidden> 
-                    <input type="text" name="order_id" value="<%= order[0].order_id %> " hidden>                
-                    <input type="submit"  value="Offer" <% if(req.body.red_price) {%> disabled <% } %>  >    
-            </form>
-            </div>
-            <div class="logout sbox bt">
-                <a href="/">Dashboard</a>
-            </div>
-        </div><!--end of upper nav-->
+        </div>
         <div class="container-fluid" style=" width: 80%;">
         <div class='cartTable'>
             <div class="col-md-12">
                 <br>
-                <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';">Current Order</h1>
-                <h3 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';">Order ID: <%= order[0].order_id %> </h3>
+                <h1 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';">Discounts</h1>
+                <h4 class="col-md-12" style=" text-align:center; font-family: 'Lucida Handwriting';"> (Eligible Discounts Only)  </h>
 
-                <form action="" method="GET">
-                <button type="button" class="btn btn-grad btn-outline-dark float-right">Confirm Order </button>
-                </form>
             </div>
             
                 <table class="table table-hover bg-warning" >
@@ -53,31 +40,32 @@
                     </thead>
                     <tbody >
                         <tr>
-                            <td> <b>Item Name</b> </td>
-                            <td><b>Price(Rs.)</b> </td>
+                            <td> <b>Description</b> </td>
+                            <td><b>Discount(%)</b> </td>
+                            <td><b>deducted Amount(Rs.)</b></td>
+                            <td></td>
                         </tr>
-                        <%  order.forEach(item => { %>   
+                        <%  discount.forEach(item => { %>   
                             <tr>
 
-                                <td><%= item.food_item_name %></td>
-                                <td><%= item.price %></td>
+                                <td><%= item.discount_description %></td>
+                                <td><%= item.discount_percentage %> %</td>
+                                <% let red_price =req.body.total * item.discount_percentage*0.01 %>
+                                <td>RS. <%= red_price  %> </td>
 
-                
                                 
+
+                                    <td>
+                                        <form action="/customer_func/cart/order/" method="post">
+                                            <input type="text" name="red_price" value="<%= red_price %>" hidden >
+                
+                                        <input type="submit" name="" value="submit">
+                                    </form>
+                                    </td>
+ 
                             </tr>
                             
                        <% }); %> 
-                        <tr>
-                        <td> <b>TOTAL</b>   </td>
-
-                        <% if(req.body.red_price) {%> 
-                        <td>  <b> <%= total - req.body.red_price%> (discount applied)</b> </td>
-                        <% } else {%>  
-                            <td>  <b> <%= total %></b> </td>
-                        <% } %> 
-
-
-                        </tr>
                             
                                 
                     </tbody>

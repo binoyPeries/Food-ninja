@@ -37,7 +37,47 @@ async function createOrder(request,response){
          await Customer.createOrder(request);
          const result =  await Customer.getCurrentOrder(request);
          const order = JSON.parse(JSON.stringify(result[0]));
-         response.render('customer/order.html',{order: order, req:request});
+        let total =0;
+         order.forEach(item => {
+             total+= item.price
+         });
+         response.render('customer/order.html',{order: order, req:request , total:total});
+        
+        
+    } catch (error) {
+        response.send(error.message);
+        
+    }
+    
+    
+}
+
+async function getOngoinOrder(request,response){
+    try {
+         const result =  await Customer.getCurrentOrder(request);
+         const order = JSON.parse(JSON.stringify(result[0]));
+        let total =0;
+         order.forEach(item => {
+             total+= item.price
+         });
+         response.render('customer/order.html',{order: order, req:request , total:total});
+        
+        
+    } catch (error) {
+        response.send(error.message);
+        
+    }
+    
+    
+}
+
+
+
+async function showDiscount(request,response){
+    try {
+         const result = await Customer.getDiscount(request);
+         const discount = JSON.parse(JSON.stringify(result[0]));
+         response.render('customer/discounts.html',{discount: discount, req:request});
         
         
     } catch (error) {
@@ -53,3 +93,5 @@ async function createOrder(request,response){
 exports.getCart = getCart;
 exports.removeCartItem = removeCartItem;
 exports.createOrder=createOrder;
+exports.showDiscount = showDiscount;
+exports.getOngoinOrder = getOngoinOrder;
