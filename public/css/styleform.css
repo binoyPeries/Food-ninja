@@ -63,3 +63,50 @@ input[type="submit"] {
     width: 150px;
     color: white;
 }
+
+
+
+
+
+.welcome {
+    display: flex;
+    height: 30%;
+}
+
+.logo {
+    width: 20%;
+    height: 100%;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    font-size: 50px;
+    padding-right: 13%;
+}
+
+.dashboard {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 25% 25%;
+    grid-template-rows: 25% 25%;
+    grid-row-gap: 20%;
+    grid-column-gap: 10%;
+    height: 70%;
+    padding: 5%;
+}
+
+.view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom right, #030302, #948353);
+    color: white;
+    font-size: 40px;
+}

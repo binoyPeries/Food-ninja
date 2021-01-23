@@ -1,32 +1,28 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Dashboard</title>
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/upperNav.css">
+    <link rel="stylesheet" href="/css/styleform.css">
 </head>
 <body>
-    <form method = "GET"  action = "/manager_func/login">
-        <input type="submit" value="manager">
-    </form>
-    <br>
-    <br>
-    <form method="GET" action="/customer_func/login">
-        <input type="submit" value="customer">
-    </form>
-    <br>
-    <br>
-
-    <form method="GET" action="/employee_func/login">
-        <input type="submit" value="employee">
-    </form>
-
-    <form method="GET" action="/driver_func/login">
-        <input type="submit" value="driver">
-    </form>
-    <br>
-    <br>
-
-
-</body>
-</html>
+    <div class="main-container">
+        <div class="welcome">
+            <div class="logo">
+                <img src="/images/Logo.png" alt="" height="100%">
+            </div>
+            <div class="message">
+                Welcome to Food Ninja!
+            </div>
+        </div>
+        <div class="dashboard">
+            <a href="/customer_func/login" class="view">I am a Customer</a>
+            <a href="/employee_func/login" class="view">I am an Employee</a>
+            <a href="/driver_func/login" class="view">I am a Driver</a>
+            <a href="/manager_func/login" class="view">I am a Manager</a>
+        </div>  
