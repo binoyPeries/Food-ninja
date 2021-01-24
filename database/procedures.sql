@@ -14,6 +14,25 @@ BEGIN
     commit;
 END$$
 
+---customer
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE `create_customer` (
+  `customer_id` INT,
+  `customer_name` VARCHAR(30),
+   `address` VARCHAR(50) ,
+   `contact_number` INT,
+   `email` VARCHAR (50),
+   `password` VARCHAR (100) 
+   
+   
+  )
+BEGIN
+    set AUTOCOMMIT = 0;
+    INSERT INTO `customer` (`Customer_id`,`Customer_name`,`Address`,`Contact_number`,`email`,`password`) VALUES 
+    (customer_id,customer_name,address,contact_number,email,password);
+    commit;
+END$$
+
 DELIMITER $$
 CREATE OR REPLACE PROCEDURE `create_food_item` (
   `food_item_id` VARCHAR(30),
@@ -236,3 +255,49 @@ BEGIN
     (name,contact_number,vehicle_type,vehicle_number,email,password);
     commit;
 END$$
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE getAllOrder()
+   BEGIN 
+   SELECT  order_id, order_cart.food_item_id, food_item.food_item_name, food_item.price FROM  order_cart left join food_item on order_cart.food_item_id = food_item.food_item_id  where order_cart.completed ='no'; end
+$$
+
+--- to complete an order
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE completeOrder(orderID INT )
+BEGIN 
+   DECLARE id Int ;
+   START TRANSACTION;
+   INSERT into processed_order(processed_order.order_id,processed_order.customer,processed_order.price,processed_order.order_date) SELECT order_cart.order_id,order_cart.customer_email,sum(food_item.price) , now() from (order_cart left JOIN food_item  on food_item.food_item_id = order_cart.food_item_id ) GROUP by order_cart.order_id HAVING order_cart.order_id = orderID;
+   UPDATE order_cart SET order_cart.completed = 'yes' WHERE order_cart.order_id = orderID;
+    COMMIT; END
+
+----------all accepted orders
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE getAceptedOrders()
+   BEGIN 
+   SELECT  * from processed_order; end
+$$
+
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE tobeDelivered()
+   BEGIN 
+   SELECT `order_id`,`customer`,`price`,customer.Address from processed_order LEFT JOIN customer on customer.email = processed_order.customer where processed_order.delivered='no';END 
+$$
+
+----
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE updateDelivery(orderID INT,driverEmail VARCHAR(50) )
+   BEGIN 
+   UPDATE processed_order SET processed_order.delivered = 'yes', processed_order.delivery_person = driverEmail  WHERE processed_order.order_id = orderID; END 
+$$
+
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE getorderByDriver()
+   BEGIN 
+   SELECT  * from processed_order; end
+$$

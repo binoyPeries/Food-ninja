@@ -37,6 +37,7 @@ CREATE TABLE `customer` (
    `email` VARCHAR(50) NOT  NULL UNIQUE ,
   `password` VARCHAR (100) NOT NULL, 
 );
+ALTER TABLE customer MODIFY COLUMN `Loyalty_Points` INT  DEFAULT 100;
 
 
 
@@ -81,7 +82,8 @@ CREATE TABLE `discount` (
 CREATE  TABLE `order_cart`(
   `order_id`  INT NOT NULL ,
   `customer_email` VARCHAR(50) not NULL ,
-  `food_item_id`  varchar(6)
+  `food_item_id`  varchar(6),
+  `completed` VARCHAR(5) DEFAULT 'no',
 
 );
 
@@ -90,7 +92,9 @@ CREATE  TABLE  `processed_order`(
   `order_id` INT NOT NULL PRIMARY key,
   `customer` VARCHAR (50),
   `price` NUMERIC(8,2) not NULl, 
-  `order_date`  DATE
+  `order_date`  DATE,
+  `delivered` VARCHAR(5) DEFAULT 'no',
+  `delivery_person` VARCHAR(50) DEFAULT NULL 
 
 );
 

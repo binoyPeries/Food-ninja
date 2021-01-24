@@ -1,24 +1,41 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Dashboard</title>
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/upperNav.css">
+    <link rel="stylesheet" href="/css/styleform.css">
 </head>
 <body>
+    <div class="main-container">
+        <div class="welcome">
+            <div class="logo">
+                <img src="/images/Logo.png" alt="" height="100%">
+            </div>
+            <div class="message">
+                Welcome to Your Dashboard!
+            </div>
+            <div>
+                <form action="/logout" method="POST">
+                    <input type="submit" class="logoutview" value="Logout">
+                </form>
 
-    employee Home Page
-
-
-    <br>
-    <br>
-    <br>
-    Logout:
-
-    <form action="/logout" method="POST">
-        <input type="submit">
-    </form>
+            </div>
+        </div>
+        <div class="dashboard">
+            <a href="/employee_func/orders/view" class="view">Pending Orders</a>
+            <a href="/employee_func/orders/accepted" class="view">Accepted Orders</a>
+        
+            
+            
+        </div>  
 
     
-</body>
+
 </html>
+
+  

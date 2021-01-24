@@ -108,5 +108,19 @@ input[type="submit"] {
     border-radius: 15px;
     background-image: linear-gradient(to bottom right, #030302, #948353);
     color: white;
-    font-size: 40px;
+    font-size: 35px;
+}
+
+.logoutview {
+    margin-top: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom right, #030302, #948353);
+    color: white;
+    font-size: 20px;
 }

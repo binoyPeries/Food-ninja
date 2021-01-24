@@ -1,5 +1,4 @@
 const Customer = require('../../models/customer');
-const { removeCartItem } = require('./cart');
 
 async function getFav(request,response){
     try {

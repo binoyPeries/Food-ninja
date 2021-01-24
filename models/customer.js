@@ -3,6 +3,7 @@ const { result } = require('lodash');
 const {pool} = require('../startup/mysql_database');
 
 module.exports= class Customer {
+
     static getmenu() {
         return new Promise((resolve, reject) => {
             pool.query("CALL getMenu()",
@@ -11,6 +12,29 @@ module.exports= class Customer {
                         reject(error);
                     };
                     resolve(results);
+                }
+            )
+        })
+      
+    }
+
+
+
+    static createCustomer(body) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL create_customer(?,?,?,?,?)",
+                [
+                    body.customer_name,
+                    body.address,
+                    body.contact_number,
+                    body.email,
+                    body.password
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(console.log("entered succesfully"));
                 }
             )
         })

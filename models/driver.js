@@ -1,10 +1,9 @@
 const {pool} = require('../startup/mysql_database');
 
-module.exports = class Employee{
-
-    static getAllOrder(request) {
+module.exports = class Driver{
+    static notDelivered(request) {
         return new Promise((resolve, reject) => {
-            pool.query("CALL getAllOrder()",
+            pool.query("CALL tobeDelivered()",
                 (error, results, fields) => {
                     if (error) {
                         reject(error);
@@ -16,12 +15,12 @@ module.exports = class Employee{
       
     
     }
-
-    static completeOrder(request) {
+    static updateDelivery(request) {
         return new Promise((resolve, reject) => {
-            pool.query("CALL completeOrder(?)",
+            pool.query("CALL updateDelivery(?,?)",
                 [
-                    request.body.order_id
+                    request.body.order_id,
+                    request.userEmail
                 ],
                 (error, results, fields) => {
                     if (error) {
@@ -34,10 +33,13 @@ module.exports = class Employee{
       
     
     }
-    
-    static getAcceptedOrders() {
+
+    static getOrderByDriver(request) {
         return new Promise((resolve, reject) => {
-            pool.query("CALL getAceptedOrders()",
+            pool.query("CALL getorderByDriver(?)",
+                [
+                    request.userEmail
+                ],
                 (error, results, fields) => {
                     if (error) {
                         reject(error);
@@ -49,5 +51,8 @@ module.exports = class Employee{
       
     
     }
-}
 
+
+
+    
+}

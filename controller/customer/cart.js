@@ -1,4 +1,3 @@
-const { func } = require('joi');
 const Customer = require('../../models/customer');
 
 async function getCart(request,response){

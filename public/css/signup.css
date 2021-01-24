@@ -1,0 +1,150 @@
+
+#rectangular{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(107.57deg, #F8C433 0%, rgba(196, 196, 196, 0) 201.88%);
+    overflow: hidden;
+}
+#polygon1{
+    position: relative;
+    width: 627.53px;
+    height: 301.47px;
+    left: -250.25px;
+    top: -100px;
+    background: #F8B332;
+    transform: rotate(-53.47deg);
+}
+#polygon2{
+    position: absolute;
+    width: 927.19px;
+    height: 552.63px;
+    left: 830px;
+    top: 400px;
+    background: #F0D198;
+    transform: rotate(140.28deg);
+}
+
+#logo{
+    position: absolute;
+    height: 230px;
+    width: 250px;
+    top: 250px;
+    left: 900px;
+
+
+}
+#Submit{
+    position: absolute;
+    width: 500px;
+    height: 560px;
+    top: 60px;
+    left: 60px;
+    background-color: #fcf7f7;
+    border-radius: 15px;
+}
+#text1{
+    position: absolute;
+    width: 600px;
+    height: 60px;
+    left: 740px;
+    top: 110px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 90px;
+}
+#User-name{
+    background-color:  #dee2df ;
+    position: relative;
+    width: 380px;
+    height: 50px;
+    top: 20px;
+    left: 40px;
+    
+}
+
+#label-name{
+    position: relative;
+    left: 38px;
+    top: 25px;
+
+}
+#Email{
+    background-color:  #dee2df ;
+    position: relative;
+    width: 380px;
+    height: 50px;
+    top: 30px;
+    left: 40px;
+    
+}
+
+#label-email{
+    position: relative;
+    left: 38px;
+    top: 28px;
+
+}
+#Password{
+    background-color:  #dee2df ;
+    position: relative;
+    width: 380px;
+    height: 50px;
+    top: 46px;
+    left: 40px;
+    
+}
+
+#label-password{
+    position: relative;
+    left: 38px;
+    top: 46px;
+
+}
+#Conform-Password{
+    background-color:  #dee2df ;
+    position: relative;
+    width: 380px;
+    height: 50px;
+    top: 65px;
+    left: 40px;
+    
+}
+
+#label-comform-password{
+    position: relative;
+    left: 38px;
+    top: 65px;
+
+}
+#button1{
+    position: relative;
+    top: 85px;
+    left: 150px;
+    width: 140px;
+    height: 50px;
+}
+#text2{
+    position: absolute;
+    width: 683px;
+    height: 45px;
+    left: 800px;
+    top: 80%;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 45px;
+    /* identical to box height */
+    color: #000000;
+}
+#text2  a{
+    color: rgb(66, 66, 212);
+}
+#text2 a:hover{
+    color:red;
+}
