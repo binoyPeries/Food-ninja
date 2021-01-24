@@ -20,7 +20,7 @@ async function createEmployee(request,response) {
        return  response.status(400).send(error.message);
     }
 
-    return response.send("Entered successfully ");
+    response.render('manager/home.html',{req:request});
     
 }
 

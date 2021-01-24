@@ -3,7 +3,7 @@ const config = require('config');
 
 module.exports = function (request, response, next) {
     const token = request.session.token;
-    console.log(token);
+
     //if no token, client doesnt have needed permissions
     if (!token) {
         return response.status(401).redirect('/login');
@@ -14,7 +14,7 @@ module.exports = function (request, response, next) {
         request.userEmail = decoded.userEmail;
         next(); //calls the route handler
     } catch (error) {
-        console.log(token);
+
         response.status(400).send("Invalid token");
         return;
     }

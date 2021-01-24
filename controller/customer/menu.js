@@ -31,7 +31,6 @@ async function addToCart(request,response) {
     } catch (error) {
         console.log(error);
     }
-    console.log("noicee");
     response.redirect('back');
 }
 exports.getMenu = getMenu;

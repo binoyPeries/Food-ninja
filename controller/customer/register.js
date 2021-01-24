@@ -19,7 +19,7 @@ async function createCustomer(request,response) {
        return  response.status(400).send(error.message);
     }
 
-    return response.send(request.body);
+    response.render('customer/home.html');
     
 }
 exports.createCustomer = createCustomer;

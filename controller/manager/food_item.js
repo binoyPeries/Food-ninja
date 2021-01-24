@@ -15,7 +15,7 @@ async function addFoodItem(request,response){
        return  response.status(400).send(error.message);
     }
 
-    return response.send(request.body);
+    response.render('manager/home.html');
 
 }
 
