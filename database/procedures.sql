@@ -269,16 +269,35 @@ $$
 BEGIN 
    DECLARE id Int ;
    START TRANSACTION;
-   INSERT into processed_order(processed_order.order_id,processed_order.customer,processed_order.price,processed_order.order_date) SELECT order_cart.order_id,order_cart.customer_email,sum(food_item.price) , now() from (order_cart left JOIN food_item  on food_item.food_item_id = order_cart.food_item_id where order_cart.order_id = orderID) GROUP by order_cart.order_id;
-   UPDATE order_cart SET order_cart.completed = 'yes' WHERE order_cart.order_id = orderID
-
-
+   INSERT into processed_order(processed_order.order_id,processed_order.customer,processed_order.price,processed_order.order_date) SELECT order_cart.order_id,order_cart.customer_email,sum(food_item.price) , now() from (order_cart left JOIN food_item  on food_item.food_item_id = order_cart.food_item_id ) GROUP by order_cart.order_id HAVING order_cart.order_id = orderID;
+   UPDATE order_cart SET order_cart.completed = 'yes' WHERE order_cart.order_id = orderID;
     COMMIT; END
-
 
 ----------all accepted orders
 DELIMITER $$
  CREATE OR REPLACE  PROCEDURE getAceptedOrders()
+   BEGIN 
+   SELECT  * from processed_order; end
+$$
+
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE tobeDelivered()
+   BEGIN 
+   SELECT `order_id`,`customer`,`price`,customer.Address from processed_order LEFT JOIN customer on customer.email = processed_order.customer where processed_order.delivered='no';END 
+$$
+
+----
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE updateDelivery(orderID INT,driverEmail VARCHAR(50) )
+   BEGIN 
+   UPDATE processed_order SET processed_order.delivered = 'yes', processed_order.delivery_person = driverEmail  WHERE processed_order.order_id = orderID; END 
+$$
+
+
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE getorderByDriver()
    BEGIN 
    SELECT  * from processed_order; end
 $$

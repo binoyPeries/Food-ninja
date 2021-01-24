@@ -92,7 +92,9 @@ CREATE  TABLE  `processed_order`(
   `order_id` INT NOT NULL PRIMARY key,
   `customer` VARCHAR (50),
   `price` NUMERIC(8,2) not NULl, 
-  `order_date`  DATE
+  `order_date`  DATE,
+  `delivered` VARCHAR(5) DEFAULT 'no',
+  `delivery_person` VARCHAR(50) DEFAULT NULL 
 
 );
 
