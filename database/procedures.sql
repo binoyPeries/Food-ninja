@@ -259,5 +259,26 @@ END$$
 DELIMITER $$
  CREATE OR REPLACE  PROCEDURE getAllOrder()
    BEGIN 
-   SELECT  order_id, order_cart.food_item_id, food_item.food_item_name, food_item.price FROM  order_cart left join food_item on order_cart.food_item_id = food_item.food_item_id ; end
+   SELECT  order_id, order_cart.food_item_id, food_item.food_item_name, food_item.price FROM  order_cart left join food_item on order_cart.food_item_id = food_item.food_item_id  where order_cart.completed ='no'; end
+$$
+
+--- to complete an order
+DELIMITER
+$$
+ CREATE OR REPLACE  PROCEDURE completeOrder(orderID INT )
+BEGIN 
+   DECLARE id Int ;
+   START TRANSACTION;
+   INSERT into processed_order(processed_order.order_id,processed_order.customer,processed_order.price,processed_order.order_date) SELECT order_cart.order_id,order_cart.customer_email,sum(food_item.price) , now() from (order_cart left JOIN food_item  on food_item.food_item_id = order_cart.food_item_id where order_cart.order_id = orderID) GROUP by order_cart.order_id;
+   UPDATE order_cart SET order_cart.completed = 'yes' WHERE order_cart.order_id = orderID
+
+
+    COMMIT; END
+
+
+----------all accepted orders
+DELIMITER $$
+ CREATE OR REPLACE  PROCEDURE getAceptedOrders()
+   BEGIN 
+   SELECT  * from processed_order; end
 $$

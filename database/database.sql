@@ -82,7 +82,8 @@ CREATE TABLE `discount` (
 CREATE  TABLE `order_cart`(
   `order_id`  INT NOT NULL ,
   `customer_email` VARCHAR(50) not NULL ,
-  `food_item_id`  varchar(6)
+  `food_item_id`  varchar(6),
+  `completed` VARCHAR(5) DEFAULT 'no',
 
 );
 

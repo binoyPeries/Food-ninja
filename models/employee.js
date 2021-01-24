@@ -17,5 +17,37 @@ module.exports = class Employee{
     
     }
 
+    static completeOrder(request) {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL completeOrder(?)",
+                [
+                    request.body.order_id
+                ],
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(results);
+                }
+            )
+        })
+      
+    
+    }
+    
+    static getAcceptedOrders() {
+        return new Promise((resolve, reject) => {
+            pool.query("CALL getAceptedOrders()",
+                (error, results, fields) => {
+                    if (error) {
+                        reject(error);
+                    };
+                    resolve(results);
+                }
+            )
+        })
+      
+    
+    }
 }
 
