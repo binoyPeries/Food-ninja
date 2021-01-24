@@ -220,8 +220,3 @@ DELIMITER $$
    BEGIN 
    UPDATE processed_order SET processed_order.delivered = 'yes', processed_order.delivery_person = driverEmail  WHERE processed_order.order_id = orderID; END 
 $$
-
-CREATE EVENT IF NOT EXISTS removeeExpiredDiscounts
-ON SCHEDULE
-EVERY 12 HOUR
-DELETE FROM discount WHERE discount.end_date < NOW();
