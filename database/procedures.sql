@@ -55,8 +55,8 @@ CREATE OR REPLACE PROCEDURE `create_discount` (
     `discount_description` VARCHAR(200),
     `eligible_price` NUMERIC(8,2) ,
     `discount_percentage` NUMERIC(4,2),
-    `start_date`  DATETIME  NOT NULL ,
-    `end_date` DATETIME   NOT NULL 
+    `start_date`  DATETIME,
+    `end_date` DATETIME 
    
   )
 BEGIN
@@ -90,8 +90,8 @@ CREATE OR REPLACE PROCEDURE `create_employee` (
   `employee_name` VARCHAR(30),
   `job_post` VARCHAR(50),
    `email` VARCHAR(100) ,
-  `password` VARCHAR (100) 
-   `contact_number` INT,
+  `password` VARCHAR (100),
+   `contact_number` INT
    
   )
 BEGIN
@@ -167,16 +167,15 @@ $$
 $$
 
 DELIMITER $$
- CREATE OR REPLACE  PROCEDURE getorderByDriver()
+ CREATE OR REPLACE  PROCEDURE getorderByDriver(driverEmail VARCHAR(50))
    BEGIN 
-   BEGIN 
-   SELECT  * from processed_order WHERE processed_order.delivery_person =driverEmail ; end$$
+   SELECT  * from processed_order WHERE processed_order.delivery_person =driverEmail ;
+end$$
 
 DELIMITER
 $$
- CREATE OR REPLACE  PROCEDURE removeCartItem(usermail VARCHAR (50) ,item VARCHAR (6) )
+ CREATE OR REPLACE  PROCEDURE removeCartItem(useremail VARCHAR (50) ,item VARCHAR (6) )
    BEGIN 
-     BEGIN 
    DELETE FROM customer_cart where customer_cart.customer_email= useremail AND customer_cart.food_item_id= item LIMIT 1; END
 $$
 
@@ -224,8 +223,5 @@ $$
 
 CREATE EVENT IF NOT EXISTS removeeExpiredDiscounts
 ON SCHEDULE
-EVERY 1 DAY 
+EVERY 12 HOUR
 DELETE FROM discount WHERE discount.end_date < NOW();
-
-
-
