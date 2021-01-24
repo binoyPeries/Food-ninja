@@ -24,23 +24,24 @@
 
             <div class="" id="rectangular">
                 <div id="image">
-                    <div id="text1">Happy and Healthy eating with<br><div id="text2">Food Ninja</div> </div>
+                    <div id="text1">Happy and Healthy Eating with<br><div id="text2">Food Ninja</div> </div>
                 </div>
                 <form action="/login" method="POST">
-                <div class="container" id="login">
-                    <div>customer</div>
+                <div class="container" id="login" style="display:flex; flex-direction: column;">
+                    <div style="font-size: 20px; font-weight: bold;">Customer Portal</div>
                     <label for="email" id="label1">E-mail:</label>
                     <input id="email" type="email" class="form-control" name="email" placeholder="Email" required>
                     <div id="space1"></div>
                     <label for="password" id="label2">Password:</label>
                     <input type="password" class="form-control pwd" id="password" name="password" required>
                    
-                    <input type="submit" class="btn btn-dark" id="logbutton" value="login">
-                    
-                    <div></div><a  class="btn btn-dark" href="/customer_func/register/create">Signup</a></div>
-                    
+                    <div> <input type="submit" class="btn btn-dark" id="logbutton" value="Login"></div>
+                    <br><br><br>
+                    <div style="font-weight: bold; font-size: 20px;"> Haven't Signed up yet? Click here to <a   href="/customer_func/register/create">Signup</a></div>
+                   
                 </div>
-            
+               
+                
 
                 <input type="text" id="privilege_level" name="privilege_level" value='3' hidden>
                
@@ -51,6 +52,7 @@
             
     
             </div>
+            
 
             
     

@@ -16,7 +16,7 @@ router.get('/order',[isLogged,isCustomer],createOrder);
 router.post('/order',[isLogged,isCustomer],getOngoinOrder);
 
 
-router.post('/order/final',loadOrderFinal);
+router.post('/order/final',[isLogged,isCustomer],loadOrderFinal);
 
 
 router.post('/discount',[isLogged,isCustomer],showDiscount);

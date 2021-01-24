@@ -11,7 +11,7 @@ const c = require('config');
 
 
 router.get('/add' , [isLogged,isManager],(request,response) =>{
-    response.sendFile(path.join(__dirname, '../../views/manager/discount_creation.html'));
+    response.render('manager/discount_creation.html',{req:request});
 
 });
 

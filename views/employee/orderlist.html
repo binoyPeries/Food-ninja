@@ -20,13 +20,10 @@
                     </a>
                 </div>
                 <div class="username sbox">
-                    <p>Hi,<%= req.userEmail %></p>
+                    <p>Hi, <%= req.userEmail %></p>
                 </div>
                 <div class="favorites sbox bt">
                     <a href="/">Dashboard</a>
-                </div>
-                <div class="logout sbox bt">
-                    <a href="">Logout</a>
                 </div>
             </div>
             
@@ -53,7 +50,7 @@
                                     <td>
                                         <% let tot=0 %> 
                                         <% while (off_id==order[i].order_id) {%>
-                                            <p><%= order[i].food_item_name%></p>
+                                            <p><%= order[i].food_item_name.toUpperCase()%></p>
                                             <% tot += order[i].price %> 
                                             <% i++;%>
                                             <% if (i>=order.length){break;}%>
@@ -63,7 +60,7 @@
                                     <td> 
                                         <form action="/employee_func/orders/view" method="post">
                                             <input type="number" name="order_id" value="<%= off_id %>" hidden>
-                                            <input type="submit" value="Accept Order">
+                                            <input style ="background-image: linear-gradient(to bottom right, #030302, #948353); color: white; border-style: none; border-radius: 15px; height: 60px;" type="submit" value="Accept Order">
                                         </form>
                                     </td>
                                 </tr>

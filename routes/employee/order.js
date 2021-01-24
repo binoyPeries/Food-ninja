@@ -10,6 +10,6 @@ const isEmployee = require('../../middleware/employee');
 router.get('/view',[isLogged,isEmployee],getAllOrder)
 router.post('/view',[isLogged,isEmployee],completeOrder);
 
-router.get('/accepted',getAcceptedOrders);
+router.get('/accepted',[isLogged,isEmployee],getAcceptedOrders);
 
 module.exports = router;

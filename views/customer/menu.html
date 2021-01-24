@@ -32,15 +32,17 @@
           </div>
           <div class="container">
               <div class="menu">
-                  <div class="item-container">
+                  <div class="item-container"> 
+                    
                     <% result.forEach(food => {%>
                       <div class="item">
+                          
                           <div class="image">
-                              <img src="/images/Sri-Lankan-Rice-and-Curry.jpg" height="90%" width="100%" >
+                              <img src="/images/food.png" height="90%" width="100%" >
                           </div>
                           <div class="details">
                               <div class="price bt-s">
-                                  <p style="margin-top:auto;"><%= food.food_item_name %> <br> Rs. <%= food.price %> <br> calory:  <%= food.calorie_amount %></p>
+                                  <p style="margin-top:auto;" "><%= food.food_item_name.toUpperCase() %> <br> Rs. <%= food.price %> <br> Calory:  <%= food.calorie_amount %> Kcal</p>
                               </div>
                               <br>
                               <div class= "bt-s">

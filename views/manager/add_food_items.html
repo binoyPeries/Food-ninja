@@ -62,18 +62,14 @@
             </div>
             <div class="col-md-2">
                 <div class="h1" style="
-              font-size: 50px;
-              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
-                sans-serif;">
-                    <h1 style="font-size: 40px; font-weight: 1000 ; ">Add Meal</h1>
+              font-size: 50px;">
+                    <h1 style="font-size: 40px; font-weight: bold ;  ">Add Meal</h1>
                 </div>
             </div>
             <div class="username sbox">
-                <p>Hi, Kasun</p>
+                <p>Hi, <%= req.userEmail %></p>
             </div>
-            <div class="mealmenu sbox bt">
-                <a href="">Meal Menu</a>
-            </div>
+         
             <div class="logout sbox bt">
                 <a href="/">Dashboard</a>
             </div>
@@ -109,7 +105,7 @@
                         <br />
                         <div class="form-group">
                             <div class="d-flex flex-column">
-                                <label class="control-label">calories</label>
+                                <label class="control-label">Calories</label>
                                 <input type="number" value="" class="form-control" id="lineHeight" name="calorie_amount"/>
                             </div>
                         </div>
@@ -120,7 +116,7 @@
                         <div class="submit-right">
                         <div class="form-group">
                             <div class="d-flex flex-column">
-                                <label class="control-label" for="">description</label>
+                                <label class="control-label" for="">Description</label>
                                 <textarea  rows="4" cols="10" id="lineHeight" class="form-control" name="description"></textarea>
                             </div>
                         </div>

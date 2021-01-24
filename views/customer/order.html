@@ -35,7 +35,7 @@
             <form action="/customer_func/cart/discount" method="POST">
                     <input type="text" name="total" value="<%= total %> " hidden> 
                     <input type="text" name="order_id" value="<%= order[0].order_id %> " hidden>                
-                    <input type="submit"  value="Offer" <% if(req.body.red_price) {%> disabled <% } %>  >    
+                    <input style="border-style: none; background-color: transparent; color: white;" type="submit"  value="Offer" <% if(req.body.red_price) {%> disabled <% } %>  >    
             </form>
             </div>
             <div class="logout sbox bt">

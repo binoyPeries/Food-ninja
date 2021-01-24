@@ -17,13 +17,10 @@
                 </a>
             </div>
             <div class="username sbox">
-                <p>Hi, Test</p>
+                <p>Hi, <%= req.userEmail %> </p>
             </div>
             <div class="meal-menu sbox bt">
-                <a href="./FoodMenu.html">Meal Menu</a>
-            </div>
-            <div class="logout sbox bt">
-                <a href="">Logout</a>
+                <a href="/">Dashboard</a>
             </div>
         </div>
 
@@ -35,7 +32,7 @@
                         <textarea type="text" name="discount_description" cols="10" rows="5"></textarea>
                     </div>
                     <div class="row">
-                        <label for="discount">  eligible Price</label>
+                        <label for="discount">  Eligible Price</label>
                         <input type="text"  name="eligible_price">
                     </div>
                     <div class="row">

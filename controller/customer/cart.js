@@ -89,7 +89,7 @@ async function showDiscount(request,response){
 }
 
 function loadOrderFinal(request,response) {
-    response.render('customer/final_order.html',{req:request})
+    response.render('customer/final_order.html',{req:request});
 
 
     

@@ -48,7 +48,7 @@ table{
     display: flex;
     justify-content: center;
     width: 10%;
-    border-radius: 30%;
+    border-radius: 15px;
     background-image: linear-gradient(to bottom right, #030302, #948353);
     margin: 0.5% 2% 0.5% 0;
 }

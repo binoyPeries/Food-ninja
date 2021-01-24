@@ -7,7 +7,7 @@ const isManager = require('../../middleware/manager');
 
 
 router.get('/add', [isLogged,isManager],(request,response) =>{
-    response.sendFile(path.join(__dirname, '../../views/manager/add_food_items.html'));
+    response.render('manager/add_food_items.html' , {req:request})
 
 });
 

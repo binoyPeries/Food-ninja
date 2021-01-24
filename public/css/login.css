@@ -1,4 +1,6 @@
-
+body{
+    font-family: Cambria;
+}
 #rectangular{
     position: absolute;
     width: 100%;
@@ -44,7 +46,7 @@
     height: 363px;
     left: 120px;
     top: 100px;
-    font-family: Poppins;
+    font-family: Cambria;
     font-style: normal;
     font-weight: bold;
     font-size: 60px;
@@ -113,7 +115,7 @@
 
     left:830px ;
     top: 600px;
-    font-family: Poppins;
+    font-family: Cambria;
     font-style: normal;
     font-weight: 500;
     font-size: 30px;
